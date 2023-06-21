@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D6AA4472A4279840079FA59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D6AA4462A4279840079FA59 /* GoogleService-Info.plist */; };
+		0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA4482A42BACA0079FA59 /* Patient.swift */; };
+		0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44A2A42BC040079FA59 /* Doctor.swift */; };
+		0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44E2A42D2C40079FA59 /* LoginView.swift */; };
+		0D6AA4512A42D58C0079FA59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA4502A42D58C0079FA59 /* LoginViewController.swift */; };
 		4B91D94E2A298B5200070ED2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91D94D2A298B5200070ED2 /* AppDelegate.swift */; };
 		4B91D9502A298B5200070ED2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91D94F2A298B5200070ED2 /* SceneDelegate.swift */; };
 		4B91D9522A298B5200070ED2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91D9512A298B5200070ED2 /* ViewController.swift */; };
@@ -36,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		0D6AA4462A4279840079FA59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D6AA4482A42BACA0079FA59 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		0D6AA44A2A42BC040079FA59 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		0D6AA44E2A42D2C40079FA59 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0D6AA4502A42D58C0079FA59 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B91D94A2A298B5200070ED2 /* App12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B91D94D2A298B5200070ED2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B91D94F2A298B5200070ED2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D6AA44C2A42D1BA0079FA59 /* Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0D6AA44D2A42D2B20079FA59 /* Views */,
+				0D6AA4502A42D58C0079FA59 /* LoginViewController.swift */,
+			);
+			path = "Login Screen";
+			sourceTree = "<group>";
+		};
+		0D6AA44D2A42D2B20079FA59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D6AA44E2A42D2C40079FA59 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4B91D9412A298B5200070ED2 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				4B99E0622A2A735600561156 /* Configs.swift */,
-				4B99E0642A2A779600561156 /* Data Models */,
 				4B99E0732A2ACD6900561156 /* Progress Indicator */,
+				4B99E0642A2A779600561156 /* Data Models */,
+				0D6AA44C2A42D1BA0079FA59 /* Login Screen */,
 				4B99E06B2A2A9C8100561156 /* Register Screen */,
 				4B99E07A2A2AEACD00561156 /* Add Contact Screen */,
 				4B99E05C2A2A6EBE00561156 /* Main Screen  */,
@@ -135,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				4B99E0652A2A77AA00561156 /* Contact.swift */,
+				0D6AA4482A42BACA0079FA59 /* Patient.swift */,
+				0D6AA44A2A42BC040079FA59 /* Doctor.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -265,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6AA4512A42D58C0079FA59 /* LoginViewController.swift in Sources */,
 				4B91D9522A298B5200070ED2 /* ViewController.swift in Sources */,
 				4B99E0722A2AAE1400561156 /* RegisterFirebaseManager.swift in Sources */,
 				4B99E0702A2A9E5800561156 /* RegisterViewController.swift in Sources */,
@@ -276,11 +305,14 @@
 				4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */,
 				4B91D9502A298B5200070ED2 /* SceneDelegate.swift in Sources */,
 				4B99E05F2A2A6EE700561156 /* MainScreenView.swift in Sources */,
+				0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */,
+				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				4B99E0682A2A795600561156 /* ContactsTableViewManager.swift in Sources */,
 				4B99E0662A2A77AA00561156 /* Contact.swift in Sources */,
 				4B99E0772A2ACD8A00561156 /* ProgressSpinnerDelegate.swift in Sources */,
+				0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */,
 				4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
