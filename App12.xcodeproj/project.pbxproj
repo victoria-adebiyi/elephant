@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D6AA4472A4279840079FA59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D6AA4462A4279840079FA59 /* GoogleService-Info.plist */; };
 		0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA4482A42BACA0079FA59 /* Patient.swift */; };
 		0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44A2A42BC040079FA59 /* Doctor.swift */; };
 		0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44E2A42D2C40079FA59 /* LoginView.swift */; };
@@ -36,10 +35,12 @@
 		4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */; };
 		4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07C2A2AEAF100561156 /* AddContactView.swift */; };
 		4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */; };
+		980C231F2A4534790006A736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 980C231E2A4534780006A736 /* GoogleService-Info.plist */; };
+		980C23242A4536EC0006A736 /* PLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23232A4536EC0006A736 /* PLPView.swift */; };
+		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D6AA4462A4279840079FA59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D6AA4482A42BACA0079FA59 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		0D6AA44A2A42BC040079FA59 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		0D6AA44E2A42D2C40079FA59 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -66,6 +67,9 @@
 		4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		4B99E07C2A2AEAF100561156 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		980C231E2A4534780006A736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		980C23232A4536EC0006A736 /* PLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPView.swift; sourceTree = "<group>"; };
+		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 		4B91D94C2A298B5200070ED2 /* App12 */ = {
 			isa = PBXGroup;
 			children = (
+				980C23202A4536510006A736 /* Patient */,
 				4B99E0622A2A735600561156 /* Configs.swift */,
 				4B99E0732A2ACD6900561156 /* Progress Indicator */,
 				4B99E0642A2A779600561156 /* Data Models */,
@@ -132,7 +137,7 @@
 				4B91D9562A298B5400070ED2 /* Assets.xcassets */,
 				4B91D9582A298B5400070ED2 /* LaunchScreen.storyboard */,
 				4B91D95B2A298B5400070ED2 /* Info.plist */,
-				0D6AA4462A4279840079FA59 /* GoogleService-Info.plist */,
+				980C231E2A4534780006A736 /* GoogleService-Info.plist */,
 			);
 			path = App12;
 			sourceTree = "<group>";
@@ -212,6 +217,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		980C23202A4536510006A736 /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				980C23212A45365E0006A736 /* Patient Landing Page */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		980C23212A45365E0006A736 /* Patient Landing Page */ = {
+			isa = PBXGroup;
+			children = (
+				980C23222A4536D90006A736 /* Views */,
+				980C23252A4537030006A736 /* PLPViewController.swift */,
+			);
+			path = "Patient Landing Page";
+			sourceTree = "<group>";
+		};
+		980C23222A4536D90006A736 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				980C23232A4536EC0006A736 /* PLPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,7 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B91D95A2A298B5400070ED2 /* LaunchScreen.storyboard in Resources */,
-				0D6AA4472A4279840079FA59 /* GoogleService-Info.plist in Resources */,
+				980C231F2A4534790006A736 /* GoogleService-Info.plist in Resources */,
 				4B91D9572A298B5400070ED2 /* Assets.xcassets in Resources */,
 				4B91D9552A298B5200070ED2 /* Main.storyboard in Resources */,
 			);
@@ -311,9 +341,11 @@
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				4B99E0682A2A795600561156 /* ContactsTableViewManager.swift in Sources */,
 				4B99E0662A2A77AA00561156 /* Contact.swift in Sources */,
+				980C23262A4537030006A736 /* PLPViewController.swift in Sources */,
 				4B99E0772A2ACD8A00561156 /* ProgressSpinnerDelegate.swift in Sources */,
 				0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */,
 				4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */,
+				980C23242A4536EC0006A736 /* PLPView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
