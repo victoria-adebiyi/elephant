@@ -38,6 +38,8 @@
 		980C231F2A4534790006A736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 980C231E2A4534780006A736 /* GoogleService-Info.plist */; };
 		980C23242A4536EC0006A736 /* PLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23232A4536EC0006A736 /* PLPView.swift */; };
 		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
+		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
+		AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524952A46187D00FA3E78 /* DLPView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		980C231E2A4534780006A736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		980C23232A4536EC0006A736 /* PLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPView.swift; sourceTree = "<group>"; };
 		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
+		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
+		AB3524952A46187D00FA3E78 /* DLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +127,9 @@
 		4B91D94C2A298B5200070ED2 /* App12 */ = {
 			isa = PBXGroup;
 			children = (
-				980C23202A4536510006A736 /* Patient */,
 				4B99E0622A2A735600561156 /* Configs.swift */,
+				AB3524992A4618BD00FA3E78 /* Doctor */,
+				980C23202A4536510006A736 /* Patient */,
 				4B99E0732A2ACD6900561156 /* Progress Indicator */,
 				4B99E0642A2A779600561156 /* Data Models */,
 				0D6AA44C2A42D1BA0079FA59 /* Login Screen */,
@@ -242,6 +247,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AB3524972A46188900FA3E78 /* Doctor Landing Page */ = {
+			isa = PBXGroup;
+			children = (
+				AB3524982A4618AC00FA3E78 /* Views */,
+				AB3524932A46183F00FA3E78 /* DLPViewController.swift */,
+			);
+			path = "Doctor Landing Page";
+			sourceTree = "<group>";
+		};
+		AB3524982A4618AC00FA3E78 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB3524952A46187D00FA3E78 /* DLPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB3524992A4618BD00FA3E78 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				AB3524972A46188900FA3E78 /* Doctor Landing Page */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,9 +362,11 @@
 				4B99E0612A2A723300561156 /* ContactsTableViewCell.swift in Sources */,
 				4B99E0752A2ACD7B00561156 /* ProgressSpinnerViewController.swift in Sources */,
 				4B99E06A2A2A89FA00561156 /* RightBarButtonManager.swift in Sources */,
+				AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */,
 				4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */,
 				4B91D9502A298B5200070ED2 /* SceneDelegate.swift in Sources */,
 				4B99E05F2A2A6EE700561156 /* MainScreenView.swift in Sources */,
+				AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */,
 				0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */,
 				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
