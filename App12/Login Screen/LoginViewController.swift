@@ -15,10 +15,6 @@ class LoginViewController: UIViewController {
     
     let childProgressView = ProgressSpinnerViewController()
     
-    let users: [String] = ["Patient", "Doctor"]
-        
-    var selectedUser = "Patient"
-    
     override func loadView() {
         view = loginView
     }
@@ -28,10 +24,6 @@ class LoginViewController: UIViewController {
         title = "Login"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        //MARK: adding the PickerView delegate and data source...
-        loginView.pickerUser.delegate = self
-        loginView.pickerUser.dataSource = self
-        
         loginView.buttonLogin.addTarget(self, action: #selector(onLoginTapped), for: .touchUpInside)
     }
     
@@ -40,45 +32,25 @@ class LoginViewController: UIViewController {
         
         //MARK: creating a new user on Firebase...
         if let email = loginView.textFieldEmail.text,
-           let password = loginView.textFieldEmail.text{
+           let password = loginView.textFieldPassword.text{
             //MARK: sign-in logic for Firebase...
             self.signInToFirebase(email: email, password: password)
         }
     }
     
     func signInToFirebase(email: String, password: String){
-        print("signing in")
         //MARK: can you display progress indicator here?
         //MARK: authenticating the user...
         Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
             if error == nil{
-                //MARK: user authenticated...
-                //MARK: pop the current controller...
-                print("success")
+                //MARK: user authenticated and pop the current controller...
                 self.navigationController?.popViewController(animated: true)
             }else{
                 //MARK: alert that no user found or password wrong...
-                print("fail")
+                let alert = UIAlertController(title: "Error!", message: "No user found or password is wrong!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
             }
         })
-    }
-}
-
-//MARK: implementing user PickerView...
-extension LoginViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-    //returns the number of columns/components in the Picker View...
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    //returns the number of rows in the current component...
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return users.count
-    }
-    
-    //set the title of currently picked row...
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        selectedUser = users[row]
-        return users[row]
     }
 }

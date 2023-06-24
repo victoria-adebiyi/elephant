@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class LoginView: UIView {
-    var pickerUser: UIPickerView!
     var textFieldEmail: UITextField!
     var textFieldPassword: UITextField!
     var buttonLogin: UIButton!
@@ -18,19 +17,11 @@ class LoginView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .white
         
-        setupPickerUser()
         setuptextFieldEmail()
         setuptextFieldPassword()
         setupbuttonRegister()
         
         initConstraints()
-    }
-    
-    func setupPickerUser(){
-        pickerUser = UIPickerView()
-        pickerUser.isUserInteractionEnabled = true
-        pickerUser.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(pickerUser)
     }
     
     func setuptextFieldEmail(){
@@ -62,11 +53,8 @@ class LoginView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            pickerUser.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            pickerUser.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldEmail.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: 16),
+            textFieldEmail.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             textFieldEmail.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldEmail.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             

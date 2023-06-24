@@ -11,6 +11,8 @@ class RegisterView: UIView {
     var pickerUser: UIPickerView!
     var textFieldName: UITextField!
     var textFieldEmail: UITextField!
+    var textFieldPhone: UITextField!
+    var textFieldAoS: UITextField! // age or specialty
     var textFieldPassword: UITextField!
     var buttonRegister: UIButton!
     
@@ -21,6 +23,8 @@ class RegisterView: UIView {
         setupPickerUser()
         setuptextFieldName()
         setuptextFieldEmail()
+        setuptextFieldPhone()
+        setuptextFieldAoS()
         setuptextFieldPassword()
         setupbuttonRegister()
         
@@ -50,6 +54,24 @@ class RegisterView: UIView {
         textFieldEmail.borderStyle = .roundedRect
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldEmail)
+    }
+    
+    func setuptextFieldPhone(){
+        textFieldPhone = UITextField()
+        textFieldPhone.placeholder = "Phone"
+        textFieldPhone.keyboardType = .phonePad
+        textFieldPhone.borderStyle = .roundedRect
+        textFieldPhone.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textFieldPhone)
+    }
+    
+    func setuptextFieldAoS(){
+        textFieldAoS = UITextField()
+        textFieldAoS.placeholder = "Specialty"
+        textFieldAoS.keyboardType = .numberPad
+        textFieldAoS.borderStyle = .roundedRect
+        textFieldAoS.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textFieldAoS)
     }
     
     func setuptextFieldPassword(){
@@ -84,13 +106,31 @@ class RegisterView: UIView {
             textFieldEmail.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldEmail.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldPassword.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 16),
+            textFieldPhone.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 16),
+            textFieldPhone.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldPhone.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            
+            textFieldAoS.topAnchor.constraint(equalTo: textFieldPhone.bottomAnchor, constant: 16),
+            textFieldAoS.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldAoS.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            
+            textFieldPassword.topAnchor.constraint(equalTo: textFieldAoS.bottomAnchor, constant: 16),
             textFieldPassword.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldPassword.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
             buttonRegister.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor, constant: 32),
             buttonRegister.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
         ])
+    }
+    
+    func swapAoS(){
+        if textFieldAoS.placeholder == "Specialty" {
+            textFieldAoS.placeholder = "Age"
+            textFieldAoS.keyboardType = .numberPad
+        }else {
+            textFieldAoS.placeholder = "Specialty"
+            textFieldAoS.keyboardType = .default
+        }
     }
     
     required init?(coder: NSCoder) {

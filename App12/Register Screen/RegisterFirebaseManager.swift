@@ -23,13 +23,20 @@ extension RegisterViewController{
             Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
                 if error == nil{
                     //MARK: the user creation is successful...
-                    self.setNameOfTheUserInFirebaseAuth(name: name)
                     
-                    if self.selectedUser == "Patient" {
-                        self.makePatient(name: name, email: email)
-                    } else {
-                        
+                    if let phone = Int(self.registerView.textFieldPhone.text!) {
+                        if self.selectedUser == "Patient" {
+                            if let age = Int(self.registerView.textFieldAoS.text!) {
+                                self.initPatient(name: name, email: email, phone: phone, age: age)
+                            }
+                        } else {
+                            if let specialty = self.registerView.textFieldAoS.text {
+                                self.initDoctor(name: name, email: email, phone: phone, specialty: specialty)
+                            }
+                        }
                     }
+                    
+                    self.setNameOfTheUserInFirebaseAuth(name: name)
                 }else{
                     //MARK: there is a error creating the user...
                     print(error)
@@ -58,25 +65,29 @@ extension RegisterViewController{
         })
     }
     
-    func makePatient(name: String, email: String) {
-        let collectionContacts = database
-            .collection("users")
-            .document(email)
-            .collection(self.selectedUser)
+    func initPatient(name: String, email: String, phone: Int, age: Int) {
+        let collectionPatient = database.collection("patient")
         
-        //MARK: show progress indicator...
-        showActivityIndicator()
         do{
-            try collectionContacts.addDocument(from: Patient(name: name, email: email, age: <#T##Int#>), completion: {(error) in
+            try collectionPatient.addDocument(from: Patient(name: name, email: email, phone: phone, age: age), completion: {(error) in
                 if error == nil{
-                    //MARK: hide progress indicator...
-                    self.hideActivityIndicator()
-                    
-                    self.navigationController?.popViewController(animated: true)
                 }
             })
         }catch{
-            print("Error adding document!")
+            print("Error adding patient document!")
+        }
+    }
+    
+    func initDoctor(name: String, email: String, phone: Int, specialty: String) {
+        let collectionDoctor = database.collection("doctor")
+        
+        do{
+            try collectionDoctor.addDocument(from: Doctor(name: name, email: email, phone: phone, specialty: specialty), completion: {(error) in
+                if error == nil{
+                }
+            })
+        }catch{
+            print("Error adding doctor document!")
         }
     }
 }

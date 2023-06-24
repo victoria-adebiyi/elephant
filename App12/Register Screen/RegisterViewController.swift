@@ -38,8 +38,41 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func onRegisterTapped(){
-        //MARK: creating a new user on Firebase...
-        registerNewAccount()
+        if let email = registerView.textFieldEmail.text,
+           let phone = registerView.textFieldPhone.text {
+            if !isValidEmail(email) {
+                showErrorAlertText(text: "Invalid email!")
+            } else if !isValidPhone(phone) {
+                showErrorAlertText(text: "Invalid phone!")
+            } else {
+                //MARK: creating a new user on Firebase...
+                registerNewAccount()
+            }
+        }
+    }
+    
+    // Borrowed from Maxim Shoustin and Zandor Smith from https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift/25471164#25471164
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidPhone(_ phone: String) -> Bool {
+        return phone.count == 10 && Int(phone) != nil
+    }
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Error!", message: "The fields cannot be empty!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    func showErrorAlertText(text:String){
+        let alert = UIAlertController(title: "Error!", message: "\(text)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 }
 
@@ -58,6 +91,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     //set the title of currently picked row...
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         selectedUser = users[row]
+        registerView.swapAoS()
         return users[row]
     }
 }
