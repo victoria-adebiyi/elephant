@@ -38,6 +38,8 @@
 		4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */; };
 		980C23242A4536EC0006A736 /* PLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23232A4536EC0006A736 /* PLPView.swift */; };
 		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
+		9814F2D52A4755A5007D8914 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D42A4755A5007D8914 /* UserType.swift */; };
+		9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */; };
 		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
 		AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524952A46187D00FA3E78 /* DLPView.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		980C23232A4536EC0006A736 /* PLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPView.swift; sourceTree = "<group>"; };
 		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
+		9814F2D42A4755A5007D8914 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
+		9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProgressIndicator.swift; sourceTree = "<group>"; };
 		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
 		AB3524952A46187D00FA3E78 /* DLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +100,7 @@
 			children = (
 				0D6AA44D2A42D2B20079FA59 /* Views */,
 				0D6AA4502A42D58C0079FA59 /* LoginViewController.swift */,
+				9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */,
 			);
 			path = "Login Screen";
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				4B99E0652A2A77AA00561156 /* Contact.swift */,
 				0D6AA4482A42BACA0079FA59 /* Patient.swift */,
 				0D6AA44A2A42BC040079FA59 /* Doctor.swift */,
+				9814F2D42A4755A5007D8914 /* UserType.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			files = (
 				0D6AA4512A42D58C0079FA59 /* LoginViewController.swift in Sources */,
 				4B91D9522A298B5200070ED2 /* ViewController.swift in Sources */,
+				9814F2D52A4755A5007D8914 /* UserType.swift in Sources */,
 				4B99E0722A2AAE1400561156 /* RegisterFirebaseManager.swift in Sources */,
 				4B99E0702A2A9E5800561156 /* RegisterViewController.swift in Sources */,
 				4B99E06E2A2A9CA700561156 /* RegisterView.swift in Sources */,
@@ -371,6 +378,7 @@
 				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
+				9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */,
 				4B99E0682A2A795600561156 /* ContactsTableViewManager.swift in Sources */,
 				4B99E0662A2A77AA00561156 /* Contact.swift in Sources */,
 				980C23262A4537030006A736 /* PLPViewController.swift in Sources */,

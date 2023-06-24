@@ -55,7 +55,8 @@ class PLPView: UIView {
     func setupLabelName(){
         labelName = UILabel()
         labelName.text = "John Doe"
-        labelName.font = .systemFont(ofSize: 20)
+        labelName.font = .systemFont(ofSize: 16)
+        labelName.lineBreakMode = .byWordWrapping
         labelName.translatesAutoresizingMaskIntoConstraints = false
         contentWrapper.addSubview(labelName)
     }
@@ -140,6 +141,7 @@ class PLPView: UIView {
             
             labelName.centerYAnchor.constraint(equalTo: profilePic.centerYAnchor),
             labelName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 32),
+            labelName.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -16),
             
             labelAge.leadingAnchor.constraint(equalTo: labelName.leadingAnchor),
             labelAge.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 24),

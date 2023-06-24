@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LoginViewController: UIViewController {
+    let database = Firestore.firestore()
     
     let loginView = LoginView()
     
@@ -34,6 +35,7 @@ class LoginViewController: UIViewController {
         if let email = loginView.textFieldEmail.text,
            let password = loginView.textFieldPassword.text{
             //MARK: sign-in logic for Firebase...
+            self.showActivityIndicator()
             self.signInToFirebase(email: email, password: password)
         }
     }
@@ -43,8 +45,38 @@ class LoginViewController: UIViewController {
         //MARK: authenticating the user...
         Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
             if error == nil{
-                //MARK: user authenticated and pop the current controller...
-                self.navigationController?.popViewController(animated: true)
+                //MARK: user authenticated and pop the corresponding controller...
+                let lowercasedEmail = email.lowercased()
+                let docDocuRef = self.database.collection("doctor").document(lowercasedEmail)
+                let patDocuRef = self.database.collection("patient").document(lowercasedEmail)
+
+                docDocuRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        let DLPScreen = DLPViewController()
+                        self.hideActivityIndicator()
+                        self.navigationController?.pushViewController(DLPScreen, animated: true)
+                    } else {
+                        patDocuRef.getDocument { (document, error) in
+                            if let document = document, document.exists {
+//                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                                let PLPScreen = PLPViewController()
+                                self.hideActivityIndicator()
+                                self.navigationController?.pushViewController(PLPScreen, animated: true)
+                            } else {
+                                self.hideActivityIndicator()
+                                print("Document does not exist")
+                                //MARK: alert that patient data is missing
+                                let alert = UIAlertController(title: "Error!", message: "Error finding user data. Please contact support.", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                                self.present(alert, animated: true)
+                            }
+                        }
+                        
+                    }
+                }
+                
+                
             }else{
                 //MARK: alert that no user found or password wrong...
                 let alert = UIAlertController(title: "Error!", message: "No user found or password is wrong!", preferredStyle: .alert)

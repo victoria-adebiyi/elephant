@@ -39,7 +39,7 @@ extension RegisterViewController{
                     self.setNameOfTheUserInFirebaseAuth(name: name)
                 }else{
                     //MARK: there is a error creating the user...
-                    print(error)
+                    print(error!)
                 }
             })
         }
@@ -66,28 +66,30 @@ extension RegisterViewController{
     }
     
     func initPatient(name: String, email: String, phone: Int, age: Int) {
-        let collectionPatient = database.collection("patient")
-        
+        let documentPatient = database.collection("patient").document(email.lowercased())
+        let docData = Patient(name: name, email: email, phone: phone, age: age)
         do{
-            try collectionPatient.addDocument(from: Patient(name: name, email: email, phone: phone, age: age), completion: {(error) in
-                if error == nil{
+            try documentPatient.setData(from: docData){ err in
+                if err == nil{
+                    print("Successfully added patient")
                 }
-            })
+            }
         }catch{
             print("Error adding patient document!")
         }
     }
     
     func initDoctor(name: String, email: String, phone: Int, specialty: String) {
-        let collectionDoctor = database.collection("doctor")
-        
+        let documentDoctor = database.collection("doctor").document(email.lowercased())
+        let docData = Doctor(name: name, email: email, phone: phone, specialty: specialty)
         do{
-            try collectionDoctor.addDocument(from: Doctor(name: name, email: email, phone: phone, specialty: specialty), completion: {(error) in
-                if error == nil{
+            try documentDoctor.setData(from: docData){ err in
+                if err == nil{
+                    print("Successfully added patient")
                 }
-            })
+            }
         }catch{
-            print("Error adding doctor document!")
+            print("Error adding patient document!")
         }
     }
 }
