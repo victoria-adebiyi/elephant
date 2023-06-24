@@ -39,12 +39,17 @@ class RegisterViewController: UIViewController {
     
     @objc func onRegisterTapped(){
         if let email = registerView.textFieldEmail.text,
-           let phone = registerView.textFieldPhone.text {
+           let phone = registerView.textFieldPhone.text,
+           let password = registerView.textFieldPassword.text,
+           let passwordVerify = registerView.textFieldPasswordVerify.text{
             if !isValidEmail(email) {
                 showErrorAlertText(text: "Invalid email!")
             } else if !isValidPhone(phone) {
                 showErrorAlertText(text: "Invalid phone!")
-            } else {
+            } else if password != passwordVerify {
+                showErrorAlertText(text: "Passwords do not match!")
+            }
+            else{
                 //MARK: creating a new user on Firebase...
                 registerNewAccount()
             }
