@@ -7,9 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 extension ViewController{
     func setupRightBarButton(isLoggedin: Bool){
+        let database = Firestore.firestore()
+        
         if isLoggedin{
             //MARK: user is logged in...
             let barIcon = UIBarButtonItem(
@@ -76,27 +80,11 @@ extension ViewController{
             message: "Please sign in to continue.",
             preferredStyle: .alert)
         
-        //MARK: setting up email textField in the alert...
-        signInAlert.addTextField{ textField in
-            textField.placeholder = "Enter email"
-            textField.contentMode = .center
-            textField.keyboardType = .emailAddress
-        }
-        
-        //MARK: setting up password textField in the alert...
-        signInAlert.addTextField{ textField in
-            textField.placeholder = "Enter password"
-            textField.contentMode = .center
-            textField.isSecureTextEntry = true
-        }
-        
         //MARK: Sign In Action...
         let signInAction = UIAlertAction(title: "Sign In", style: .default, handler: {(_) in
-            if let email = signInAlert.textFields![0].text,
-               let password = signInAlert.textFields![1].text{
-                //MARK: sign-in logic for Firebase...
-                self.signInToFirebase(email: email, password: password)
-            }
+            //MARK: logic to open the login screen...
+            let loginViewController = LoginViewController()
+            self.navigationController?.pushViewController(loginViewController, animated: true)
         })
         
         //MARK: Register Action...

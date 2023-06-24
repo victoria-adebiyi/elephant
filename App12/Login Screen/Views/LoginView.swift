@@ -10,7 +10,6 @@ import UIKit
 
 class LoginView: UIView {
     var pickerUser: UIPickerView!
-    var textFieldName: UITextField!
     var textFieldEmail: UITextField!
     var textFieldPassword: UITextField!
     var buttonLogin: UIButton!
@@ -20,7 +19,6 @@ class LoginView: UIView {
         self.backgroundColor = .white
         
         setupPickerUser()
-        setuptextFieldName()
         setuptextFieldEmail()
         setuptextFieldPassword()
         setupbuttonRegister()
@@ -33,15 +31,6 @@ class LoginView: UIView {
         pickerUser.isUserInteractionEnabled = true
         pickerUser.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(pickerUser)
-    }
-    
-    func setuptextFieldName(){
-        textFieldName = UITextField()
-        textFieldName.placeholder = "Name"
-        textFieldName.keyboardType = .default
-        textFieldName.borderStyle = .roundedRect
-        textFieldName.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldName)
     }
     
     func setuptextFieldEmail(){
@@ -65,7 +54,7 @@ class LoginView: UIView {
     
     func setupbuttonRegister(){
         buttonLogin = UIButton(type: .system)
-        buttonLogin.setTitle("Register", for: .normal)
+        buttonLogin.setTitle("Login", for: .normal)
         buttonLogin.titleLabel?.font = .boldSystemFont(ofSize: 16)
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(buttonLogin)
@@ -73,15 +62,11 @@ class LoginView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
+            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             pickerUser.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             pickerUser.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldName.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: 32),
-            textFieldName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            textFieldName.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
-            
-            textFieldEmail.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 16),
+            textFieldEmail.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: 16),
             textFieldEmail.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldEmail.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             

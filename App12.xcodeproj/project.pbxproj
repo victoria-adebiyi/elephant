@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D491B682A4667210092C3BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D491B672A4667210092C3BA /* GoogleService-Info.plist */; };
 		0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA4482A42BACA0079FA59 /* Patient.swift */; };
 		0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44A2A42BC040079FA59 /* Doctor.swift */; };
 		0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA44E2A42D2C40079FA59 /* LoginView.swift */; };
@@ -35,7 +36,6 @@
 		4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */; };
 		4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07C2A2AEAF100561156 /* AddContactView.swift */; };
 		4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */; };
-		980C231F2A4534790006A736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 980C231E2A4534780006A736 /* GoogleService-Info.plist */; };
 		980C23242A4536EC0006A736 /* PLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23232A4536EC0006A736 /* PLPView.swift */; };
 		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
 		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
@@ -43,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D491B672A4667210092C3BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D6AA4482A42BACA0079FA59 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		0D6AA44A2A42BC040079FA59 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		0D6AA44E2A42D2C40079FA59 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		4B99E07C2A2AEAF100561156 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		4B99E07E2A2AEB0A00561156 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
-		980C231E2A4534780006A736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		980C23232A4536EC0006A736 /* PLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPView.swift; sourceTree = "<group>"; };
 		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
 		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				4B91D9562A298B5400070ED2 /* Assets.xcassets */,
 				4B91D9582A298B5400070ED2 /* LaunchScreen.storyboard */,
 				4B91D95B2A298B5400070ED2 /* Info.plist */,
-				980C231E2A4534780006A736 /* GoogleService-Info.plist */,
+				0D491B672A4667210092C3BA /* GoogleService-Info.plist */,
 			);
 			path = App12;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B91D95A2A298B5400070ED2 /* LaunchScreen.storyboard in Resources */,
-				980C231F2A4534790006A736 /* GoogleService-Info.plist in Resources */,
+				0D491B682A4667210092C3BA /* GoogleService-Info.plist in Resources */,
 				4B91D9572A298B5400070ED2 /* Assets.xcassets in Resources */,
 				4B91D9552A298B5200070ED2 /* Main.storyboard in Resources */,
 			);

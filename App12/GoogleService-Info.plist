@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>841433526696-rdtbieadoh3dsthvoc1jf18do1tch946.apps.googleusercontent.com</string>
+	<string>344574547843-6tjjb9rudig7ht8juv899v039meesqir.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.841433526696-rdtbieadoh3dsthvoc1jf18do1tch946</string>
+	<string>com.googleusercontent.apps.344574547843-6tjjb9rudig7ht8juv899v039meesqir</string>
 	<key>API_KEY</key>
-	<string>AIzaSyClvnX22-tIpllmL20QBDTc3Qx-jWoKcLE</string>
+	<string>AIzaSyBlYYbAYRYjqTbKrXwaCdQJW6fL_IG5A3o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>841433526696</string>
+	<string>344574547843</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>space.sakibnm.App12</string>
+	<string>elephant</string>
 	<key>PROJECT_ID</key>
-	<string>iosnudemo</string>
+	<string>elep-b6a20</string>
 	<key>STORAGE_BUCKET</key>
-	<string>iosnudemo.appspot.com</string>
+	<string>elep-b6a20.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:841433526696:ios:001643aab61b055742ad9d</string>
+	<string>1:344574547843:ios:9e1095b6fa051e8b6108b6</string>
 </dict>
 </plist>

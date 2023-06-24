@@ -8,6 +8,7 @@
 import UIKit
 
 class RegisterView: UIView {
+    var pickerUser: UIPickerView!
     var textFieldName: UITextField!
     var textFieldEmail: UITextField!
     var textFieldPassword: UITextField!
@@ -16,12 +17,21 @@ class RegisterView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         self.backgroundColor = .white
+        
+        setupPickerUser()
         setuptextFieldName()
         setuptextFieldEmail()
         setuptextFieldPassword()
         setupbuttonRegister()
         
         initConstraints()
+    }
+    
+    func setupPickerUser(){
+        pickerUser = UIPickerView()
+        pickerUser.isUserInteractionEnabled = true
+        pickerUser.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(pickerUser)
     }
     
     func setuptextFieldName(){
@@ -62,7 +72,11 @@ class RegisterView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            textFieldName.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
+            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            pickerUser.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            pickerUser.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            
+            textFieldName.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: 16),
             textFieldName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldName.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             

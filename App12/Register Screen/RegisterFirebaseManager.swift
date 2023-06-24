@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 extension RegisterViewController{
     
@@ -22,6 +24,12 @@ extension RegisterViewController{
                 if error == nil{
                     //MARK: the user creation is successful...
                     self.setNameOfTheUserInFirebaseAuth(name: name)
+                    
+                    if self.selectedUser == "Patient" {
+                        self.makePatient(name: name, email: email)
+                    } else {
+                        
+                    }
                 }else{
                     //MARK: there is a error creating the user...
                     print(error)
@@ -48,5 +56,27 @@ extension RegisterViewController{
                 print("Error occured: \(String(describing: error))")
             }
         })
+    }
+    
+    func makePatient(name: String, email: String) {
+        let collectionContacts = database
+            .collection("users")
+            .document(email)
+            .collection(self.selectedUser)
+        
+        //MARK: show progress indicator...
+        showActivityIndicator()
+        do{
+            try collectionContacts.addDocument(from: Patient(name: name, email: email, age: <#T##Int#>), completion: {(error) in
+                if error == nil{
+                    //MARK: hide progress indicator...
+                    self.hideActivityIndicator()
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }catch{
+            print("Error adding document!")
+        }
     }
 }

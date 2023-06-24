@@ -32,10 +32,12 @@ class LoginViewController: UIViewController {
         loginView.pickerUser.delegate = self
         loginView.pickerUser.dataSource = self
         
-        loginView.buttonLogin.addTarget(self, action: #selector(onRegisterTapped), for: .touchUpInside)
+        loginView.buttonLogin.addTarget(self, action: #selector(onLoginTapped), for: .touchUpInside)
     }
     
-    @objc func onRegisterTapped(){
+    @objc func onLoginTapped(){
+        print("logging tapped")
+        
         //MARK: creating a new user on Firebase...
         if let email = loginView.textFieldEmail.text,
            let password = loginView.textFieldEmail.text{
@@ -45,15 +47,18 @@ class LoginViewController: UIViewController {
     }
     
     func signInToFirebase(email: String, password: String){
+        print("signing in")
         //MARK: can you display progress indicator here?
         //MARK: authenticating the user...
         Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
             if error == nil{
                 //MARK: user authenticated...
-                
+                //MARK: pop the current controller...
+                print("success")
+                self.navigationController?.popViewController(animated: true)
             }else{
                 //MARK: alert that no user found or password wrong...
-                
+                print("fail")
             }
         })
     }
