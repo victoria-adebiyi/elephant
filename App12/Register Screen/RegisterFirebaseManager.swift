@@ -56,8 +56,16 @@ extension RegisterViewController{
                 //MARK: hide the progress indicator...
                 self.hideActivityIndicator()
                 
-                //MARK: pop the current controller...
-                self.navigationController?.popViewController(animated: true)
+                if self.selectedUser == "Patient" {
+                    let plpController = PLPViewController()
+                    plpController.currentUser = self.currentUser
+                    self.navigationController?.pushViewController(plpController, animated: true)
+                }
+                else {
+                    let dlpController = DLPViewController()
+                    dlpController.currentUser = self.currentUser
+                    self.navigationController?.pushViewController(dlpController, animated: true)
+                }
             }else{
                 //MARK: there was an error updating the profile...
                 print("Error occured: \(String(describing: error))")

@@ -21,8 +21,15 @@ class PLPViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let barLogout = UIBarButtonItem(
+            title: "Logout",
+            style: .plain,
+            target: self,
+            action: #selector(onBarLogoutButtonTapped)
+        )
+        
+        navigationItem.rightBarButtonItems = [barLogout]
     }
     
     override func loadView() {
@@ -57,7 +64,6 @@ class PLPViewController: UIViewController {
                         }
                     }
                 }
-                
 //                //MARK: Observe Firestore database to display the contacts list...
 //                self.database.collection("users")
 //                    .document((self.currentUser?.email)!)
@@ -77,10 +83,24 @@ class PLPViewController: UIViewController {
 //                            self.mainScreen.tableViewContacts.reloadData()
 //                        }
 //                    })
-                        
-                
             }
         }
+    }
+    
+    @objc func onBarLogoutButtonTapped(){
+        let logoutAlert = UIAlertController(title: "Logging out!", message: "Are you sure want to log out?", preferredStyle: .actionSheet)
+        logoutAlert.addAction(UIAlertAction(title: "Yes, log out!", style: .default, handler: {(_) in
+                do{
+                    try Auth.auth().signOut()
+                    self.navigationController?.popToRootViewController(animated: true)
+                }catch{
+                    print("Error occured!")
+                }
+            })
+        )
+        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(logoutAlert, animated: true)
     }
 
 }

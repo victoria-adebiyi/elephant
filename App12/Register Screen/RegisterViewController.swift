@@ -14,6 +14,8 @@ class RegisterViewController: UIViewController {
     
     let database = Firestore.firestore()
     
+    var currentUser:FirebaseAuth.User?
+    
     let registerView = RegisterView()
     
     let childProgressView = ProgressSpinnerViewController()

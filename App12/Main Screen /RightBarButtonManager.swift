@@ -65,12 +65,12 @@ extension ViewController{
     }
     
     @objc func onBarTempButtonTapped(){
-        var plpView = PLPViewController()
+        let plpView = PLPViewController()
         self.navigationController?.pushViewController(plpView, animated: true)
     }
     
     @objc func onBarTemp2ButtonTapped(){
-        var dlpView = DLPViewController()
+        let dlpView = DLPViewController()
         self.navigationController?.pushViewController(dlpView, animated: true)
     }
     
