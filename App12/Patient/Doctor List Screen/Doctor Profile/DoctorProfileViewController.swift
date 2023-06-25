@@ -1,23 +1,23 @@
 //
-//  PatientProfileViewController.swift
+//  DoctorProfileViewController.swift
 //  App12
 //
-//  Created by Eden Gugsa on 6/24/23.
+//  Created by Eden Gugsa on 6/25/23.
 //
 
 import UIKit
 
-class PatientProfileViewController: UIViewController {
-    var docsPatientsControl:DoctorsPatientsViewController!
-    var patientProfileScreen = PatientProfileView()
+class DoctorProfileViewController: UIViewController {
+    var patientsDocsControl:PatientsDoctorsViewController!
+    var doctorProfileScreen = DoctorProfileView()
     
     var patIdx = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let barRemove = UIBarButtonItem(
-            title: "Remove Patient",
+            title: "Remove Doctor",
             style: .plain,
             target: self,
             action: #selector(onBarRemoveButtonTapped)
@@ -26,20 +26,19 @@ class PatientProfileViewController: UIViewController {
         barRemove.tintColor = .red
         
         navigationItem.rightBarButtonItems = [barRemove]
-
     }
     
     override func loadView() {
-        view = patientProfileScreen
+        view = doctorProfileScreen
     }
     
     @objc func onBarRemoveButtonTapped(){
-        let removeAlert = UIAlertController(title: "Remove Patient", message: "Are you sure want to remove patient?", preferredStyle: .actionSheet)
+        let removeAlert = UIAlertController(title: "Remove Doctor", message: "Are you sure want to remove doctor?", preferredStyle: .actionSheet)
         removeAlert.addAction(UIAlertAction(title: "Yes, remove!", style: .default, handler: {(_) in
-            print(self.docsPatientsControl.patients.count)
+            print(self.patientsDocsControl.doctors.count)
             print(self.patIdx)
-            self.docsPatientsControl.patients.remove(at: self.patIdx)
-            self.docsPatientsControl.docsPatientsScreen.tableViewPatients.reloadData()
+            self.patientsDocsControl.doctors.remove(at: self.patIdx)
+            self.patientsDocsControl.patientsDocsScreen.tableViewDoctors.reloadData()
             self.navigationController?.popViewController(animated: true)
             })
         )
@@ -48,5 +47,5 @@ class PatientProfileViewController: UIViewController {
         self.present(removeAlert, animated: true)
     }
 
-}
 
+}

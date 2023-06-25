@@ -19,9 +19,25 @@ extension PatientsDoctorsViewController: UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "doctors", for: indexPath) as! PatientsDocsTableViewCell
         
         cell.labelDoctorsName.text = self.doctors[indexPath.row].name
-        cell.labelDoctorsSpecialty.text = "Age: \(self.doctors[indexPath.row].specialty)"
+        cell.labelDoctorsSpecialty.text = "Specialty: \(self.doctors[indexPath.row].specialty)"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let docProf = DoctorProfileViewController()
+        docProf.patIdx = indexPath.row
+        print(self.doctors.count)
+        print(indexPath.row)
+        
+        let selected = self.doctors[indexPath.row]
+        
+        docProf.doctorProfileScreen.doctorNameLabel.text = selected.name
+        docProf.doctorProfileScreen.doctorSpecialtyLabel.text = "Specialty: \(selected.specialty)"
+        docProf.doctorProfileScreen.doctorEmailLabel.text = "Email: \(selected.email)"
+        docProf.doctorProfileScreen.doctorPhoneLabel.text = "Phone: \(selected.phone)"
+        docProf.patientsDocsControl = self
+        navigationController?.pushViewController(docProf, animated: true)
     }
 }
 

@@ -9,7 +9,6 @@ import UIKit
 import FirebaseFirestore
 
 class PatientsDoctorsViewController: UIViewController {
-
     var patientsDocsScreen = PatientsDoctorsView()
     
     var doctors = [Doctor]()
