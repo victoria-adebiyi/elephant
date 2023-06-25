@@ -13,14 +13,14 @@ import FirebaseFirestoreSwift
 extension RegisterViewController{
     func uploadProfilePhotoToStorage(){
         var profilePhotoURL:URL?
-        
+
         //MARK: Upload the profile photo if there is any...
         if let image = pickedImage{
             if let jpegData = image.jpegData(compressionQuality: 80){
                 let storageRef = storage.reference()
                 let imagesRepo = storageRef.child("imagesUsers")
                 let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
-                
+
                 let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
                     if error == nil{
                         imageRef.downloadURL(completion: {(url, error) in
@@ -42,7 +42,7 @@ extension RegisterViewController{
             registerNewAccount(photoURL: profilePhotoURL)
         }
     }
-    
+
     func registerNewAccount(photoURL: URL?){
         //MARK: display the progress indicator...
         showActivityIndicator()
@@ -50,11 +50,13 @@ extension RegisterViewController{
         if let name = registerView.textFieldName.text,
            let email = registerView.textFieldEmail.text,
            let password = registerView.textFieldPassword.text{
+
+            Configs.myEmail = email.lowercased()
             //Validations....
             Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
                 if error == nil{
                     //MARK: the user creation is successful...
-                    
+
                     if let phone = Int(self.registerView.textFieldPhone.text!) {
                         if self.selectedUser == "Patient" {
                             if let age = Int(self.registerView.textFieldAoS.text!) {
@@ -75,7 +77,7 @@ extension RegisterViewController{
             })
         }
     }
-    
+
     //MARK: We set the name of the user after we create the account...
     func setNameAndPhotoOfTheUserInFirebaseAuth(name: String, email: String, photoURL: URL?){
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -86,10 +88,10 @@ extension RegisterViewController{
         changeRequest?.commitChanges(completion: {(error) in
             if error == nil{
                 //MARK: the profile update is successful...
-                
+
                 //MARK: hide the progress indicator...
                 self.hideActivityIndicator()
-                
+
                 if self.selectedUser == "Patient" {
                     let plpController = PLPViewController()
                     plpController.currentUser = self.currentUser
@@ -106,7 +108,7 @@ extension RegisterViewController{
             }
         })
     }
-    
+
     func initPatient(name: String, email: String, phone: Int, age: Int) {
         let documentPatient = database.collection("patient").document(email.lowercased())
         let docData = Patient(name: name, email: email, phone: phone, age: age)
@@ -120,7 +122,7 @@ extension RegisterViewController{
             print("Error adding patient document!")
         }
     }
-    
+
     func initDoctor(name: String, email: String, phone: Int, specialty: String) {
         let documentDoctor = database.collection("doctor").document(email.lowercased())
         let docData = Doctor(name: name, email: email, phone: phone, specialty: specialty)

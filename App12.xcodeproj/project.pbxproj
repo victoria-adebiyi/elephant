@@ -71,6 +71,7 @@
 		AB3524CA2A48A5FF00FA3E78 /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524C92A48A5FF00FA3E78 /* DoctorProfileViewController.swift */; };
 		AB3524CD2A48A62B00FA3E78 /* DoctorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524CC2A48A62B00FA3E78 /* DoctorProfileView.swift */; };
 		AB3524CF2A48B49600FA3E78 /* DoctorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524CE2A48B49600FA3E78 /* DoctorsList.swift */; };
+		AB3524D32A48D53300FA3E78 /* PatientsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524D22A48D53300FA3E78 /* PatientsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		AB3524C92A48A5FF00FA3E78 /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
 		AB3524CC2A48A62B00FA3E78 /* DoctorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileView.swift; sourceTree = "<group>"; };
 		AB3524CE2A48B49600FA3E78 /* DoctorsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsList.swift; sourceTree = "<group>"; };
+		AB3524D22A48D53300FA3E78 /* PatientsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 				0D6AA44A2A42BC040079FA59 /* Doctor.swift */,
 				9814F2D42A4755A5007D8914 /* UserType.swift */,
 				98D8E1352A48BFD700E2373C /* Symptom.swift */,
+				AB3524D22A48D53300FA3E78 /* PatientsList.swift */,
 				AB3524CE2A48B49600FA3E78 /* DoctorsList.swift */,
 			);
 			path = "Data Models";
@@ -628,6 +631,7 @@
 				AB3524CF2A48B49600FA3E78 /* DoctorsList.swift in Sources */,
 				AB3524C42A480FCC00FA3E78 /* AddMedicationsView.swift in Sources */,
 				AB3524C52A480FCC00FA3E78 /* MedicationsTableViewManager.swift in Sources */,
+				AB3524D32A48D53300FA3E78 /* PatientsList.swift in Sources */,
 				98D8E1312A48B37300E2373C /* SymptomsTableViewManager.swift in Sources */,
 				98D8E12F2A48B37300E2373C /* AddSymptomsViewController.swift in Sources */,
 			);
