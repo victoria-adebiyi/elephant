@@ -11,6 +11,7 @@ class MainScreenView: UIView {
     var profilePic: UIImageView!
     var labelText: UILabel!
     var floatingButtonAddContact: UIButton!
+    var seeProfileButton: UIButton!
     var tableViewContacts: UITableView!
     
     override init(frame: CGRect) {
@@ -21,6 +22,7 @@ class MainScreenView: UIView {
         setupLabelText()
         setupFloatingButtonAddContact()
         setupTableViewContacts()
+        setupSeeProfileButton()
         initConstraints()
     }
     
@@ -65,6 +67,14 @@ class MainScreenView: UIView {
         self.addSubview(floatingButtonAddContact)
     }
     
+    func setupSeeProfileButton(){
+        seeProfileButton = UIButton(type: .system)
+        seeProfileButton.setTitle("Profile", for: .normal)
+        seeProfileButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        seeProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(seeProfileButton)
+    }
+    
     
     //MARK: setting up constraints...
     func initConstraints(){
@@ -87,6 +97,10 @@ class MainScreenView: UIView {
             floatingButtonAddContact.heightAnchor.constraint(equalToConstant: 48),
             floatingButtonAddContact.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             floatingButtonAddContact.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            
+            seeProfileButton.topAnchor.constraint(equalTo: labelText.bottomAnchor, constant: 32),
+            seeProfileButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
         ])
     }

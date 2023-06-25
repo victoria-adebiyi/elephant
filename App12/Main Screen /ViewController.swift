@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     let mainScreen = MainScreenView()
     
-    var contactsList = [Contact]()
+//    var contactsList = [Contact]()
     
     var handleAuth: AuthStateDidChangeListenerHandle?
     
@@ -37,9 +37,9 @@ class ViewController: UIViewController {
                 self.mainScreen.floatingButtonAddContact.isEnabled = false
                 self.mainScreen.floatingButtonAddContact.isHidden = true
                 
-                //MARK: Reset tableView...
-                self.contactsList.removeAll()
-                self.mainScreen.tableViewContacts.reloadData()
+//                //MARK: Reset tableView...
+//                self.contactsList.removeAll()
+//                self.mainScreen.tableViewContacts.reloadData()
                 
                 //MARK: Sign in bar button...
                 self.setupRightBarButton(isLoggedin: false)
@@ -54,25 +54,25 @@ class ViewController: UIViewController {
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
                 
-                //MARK: Observe Firestore database to display the contacts list...
-                self.database.collection("users")
-                    .document((self.currentUser?.email)!)
-                    .collection("contacts")
-                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-                        if let documents = querySnapshot?.documents{
-                            self.contactsList.removeAll()
-                            for document in documents{
-                                do{
-                                    let contact  = try document.data(as: Contact.self)
-                                    self.contactsList.append(contact)
-                                }catch{
-                                    print(error)
-                                }
-                            }
-                            self.contactsList.sort(by: {$0.name < $1.name})
-                            self.mainScreen.tableViewContacts.reloadData()
-                        }
-                    })
+//                //MARK: Observe Firestore database to display the contacts list...
+//                self.database.collection("users")
+//                    .document((self.currentUser?.email)!)
+//                    .collection("contacts")
+//                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+//                        if let documents = querySnapshot?.documents{
+//                            self.contactsList.removeAll()
+//                            for document in documents{
+//                                do{
+//                                    let contact  = try document.data(as: Contact.self)
+//                                    self.contactsList.append(contact)
+//                                }catch{
+//                                    print(error)
+//                                }
+//                            }
+//                            self.contactsList.sort(by: {$0.name < $1.name})
+//                            self.mainScreen.tableViewContacts.reloadData()
+//                        }
+//                    })
                 
             }
         }
@@ -81,14 +81,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Contacts"
+        title = "Elephant Telehealth"
         
         //MARK: patching table view delegate and data source...
-        mainScreen.tableViewContacts.delegate = self
-        mainScreen.tableViewContacts.dataSource = self
+//        mainScreen.tableViewContacts.delegate = self
+//        mainScreen.tableViewContacts.dataSource = self
         
-        //MARK: removing the separator line...
-        mainScreen.tableViewContacts.separatorStyle = .none
+////        MARK: removing the separator line...
+//        mainScreen.tableViewContacts.separatorStyle = .none
         
         //MARK: Make the titles look large...
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -98,6 +98,7 @@ class ViewController: UIViewController {
         
         //MARK: tapping the floating add contact button...
         mainScreen.floatingButtonAddContact.addTarget(self, action: #selector(addContactButtonTapped), for: .touchUpInside)
+        mainScreen.seeProfileButton.addTarget(self, action: #selector(addSeeProfileButtonTapped), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,6 +114,10 @@ class ViewController: UIViewController {
         let addContactController = AddContactViewController()
         addContactController.currentUser = self.currentUser
         navigationController?.pushViewController(addContactController, animated: true)
+    }
+    
+    @objc func addSeeProfileButtonTapped(){
+        
     }
 }
 

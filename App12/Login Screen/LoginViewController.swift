@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     
     let childProgressView = ProgressSpinnerViewController()
     
+    var selectedUser = "patient"
+    
     override func loadView() {
         view = loginView
     }
@@ -49,17 +51,17 @@ class LoginViewController: UIViewController {
                 let lowercasedEmail = email.lowercased()
                 let docDocuRef = self.database.collection("doctor").document(lowercasedEmail)
                 let patDocuRef = self.database.collection("patient").document(lowercasedEmail)
-
+                
                 docDocuRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        //                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         let DLPScreen = DLPViewController()
                         self.hideActivityIndicator()
                         self.navigationController?.pushViewController(DLPScreen, animated: true)
                     } else {
                         patDocuRef.getDocument { (document, error) in
                             if let document = document, document.exists {
-//                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                                //                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                                 let PLPScreen = PLPViewController()
                                 self.hideActivityIndicator()
                                 self.navigationController?.pushViewController(PLPScreen, animated: true)

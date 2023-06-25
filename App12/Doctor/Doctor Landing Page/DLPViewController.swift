@@ -10,7 +10,6 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class DLPViewController: UIViewController {
-    
     var dlpScreen = DLPView()
     
     var currentUser:FirebaseAuth.User?
@@ -29,6 +28,7 @@ class DLPViewController: UIViewController {
             action: #selector(onBarLogoutButtonTapped)
         )
         
+        dlpScreen.buttonPatients.addTarget(self, action: #selector(onPatientsButtonTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
     }
     
@@ -66,6 +66,12 @@ class DLPViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func onPatientsButtonTapped(){
+        let docsPatientsScreen = DoctorsPatientsViewController()
+//        addContactController.currentUser = self.currentUser
+        navigationController?.pushViewController(docsPatientsScreen, animated: true)
     }
     
     @objc func onBarLogoutButtonTapped(){

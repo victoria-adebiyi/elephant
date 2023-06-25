@@ -8,7 +8,6 @@
 import UIKit
 
 class DLPView: UIView {
-
     var contentWrapper: UIScrollView!
     var profilePic: UIImageView!
     var buttonEditPFP: UIButton!

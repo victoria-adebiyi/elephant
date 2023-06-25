@@ -18,7 +18,6 @@ class PLPViewController: UIViewController {
     
     let database = Firestore.firestore()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +27,8 @@ class PLPViewController: UIViewController {
             target: self,
             action: #selector(onBarLogoutButtonTapped)
         )
-        
+
+        plpScreen.buttonDoctor.addTarget(self, action: #selector(onDoctorsButtonTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
     }
     
@@ -85,6 +85,12 @@ class PLPViewController: UIViewController {
 //                    })
             }
         }
+    }
+    
+    @objc func onDoctorsButtonTapped(){
+        let patientsDocsScreen = PatientsDoctorsViewController()
+//        patientsDocsScreen.currentUser = self.currentUser
+        navigationController?.pushViewController(patientsDocsScreen, animated: true)
     }
     
     @objc func onBarLogoutButtonTapped(){
