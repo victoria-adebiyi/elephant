@@ -39,3 +39,4 @@ extension DoctorsPatientsViewController: UITableViewDelegate, UITableViewDataSou
         navigationController?.pushViewController(patientProf, animated: true)
     }
 }
+
