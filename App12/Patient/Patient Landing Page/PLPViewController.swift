@@ -32,6 +32,7 @@ class PLPViewController: UIViewController {
         navigationItem.rightBarButtonItems = [barLogout]
         
         self.plpScreen.buttonMedication.addTarget(self, action: #selector(onButtonMedicationTapped), for: .touchUpInside)
+        self.plpScreen.buttonSymptoms.addTarget(self, action: #selector(onButtonSymptomTapped), for: .touchUpInside)
     }
     
     override func loadView() {
@@ -81,7 +82,12 @@ class PLPViewController: UIViewController {
         let medicationScreen = MedicationsViewController()
         medicationScreen.delegate = self
         self.navigationController?.pushViewController(medicationScreen, animated: true)
-
+    }
+    
+    @objc func onButtonSymptomTapped() {
+        let symptomScreen = SymptomsViewController()
+        symptomScreen.delegate = self
+        self.navigationController?.pushViewController(symptomScreen, animated: true)
     }
     
     @objc func onBarLogoutButtonTapped() {

@@ -9,4 +9,6 @@ import Foundation
 class Configs{
     static let tableViewContactsID = "tableViewContactsID"
     static let tableViewMedicationsID = "tableViewMedicationsID"
+    static let tableViewSymptomsID = "tableViewSymptomsID"
+
 }

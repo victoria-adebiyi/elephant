@@ -40,6 +40,13 @@
 		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
 		9814F2D52A4755A5007D8914 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D42A4755A5007D8914 /* UserType.swift */; };
 		9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */; };
+		98D8E12F2A48B37300E2373C /* AddSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1262A48B37300E2373C /* AddSymptomsViewController.swift */; };
+		98D8E1302A48B37300E2373C /* AddSymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1282A48B37300E2373C /* AddSymptomsView.swift */; };
+		98D8E1312A48B37300E2373C /* SymptomsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12A2A48B37300E2373C /* SymptomsTableViewManager.swift */; };
+		98D8E1322A48B37300E2373C /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12B2A48B37300E2373C /* SymptomsViewController.swift */; };
+		98D8E1332A48B37300E2373C /* SymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12D2A48B37300E2373C /* SymptomsTableViewCell.swift */; };
+		98D8E1342A48B37300E2373C /* SymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12E2A48B37300E2373C /* SymptomsView.swift */; };
+		98D8E1362A48BFD700E2373C /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1352A48BFD700E2373C /* Symptom.swift */; };
 		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
 		AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524952A46187D00FA3E78 /* DLPView.swift */; };
 		AB35249B2A4791EE00FA3E78 /* DoctorsPatientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */; };
@@ -95,6 +102,13 @@
 		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
 		9814F2D42A4755A5007D8914 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProgressIndicator.swift; sourceTree = "<group>"; };
+		98D8E1262A48B37300E2373C /* AddSymptomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSymptomsViewController.swift; sourceTree = "<group>"; };
+		98D8E1282A48B37300E2373C /* AddSymptomsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSymptomsView.swift; sourceTree = "<group>"; };
+		98D8E12A2A48B37300E2373C /* SymptomsTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsTableViewManager.swift; sourceTree = "<group>"; };
+		98D8E12B2A48B37300E2373C /* SymptomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
+		98D8E12D2A48B37300E2373C /* SymptomsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsTableViewCell.swift; sourceTree = "<group>"; };
+		98D8E12E2A48B37300E2373C /* SymptomsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsView.swift; sourceTree = "<group>"; };
+		98D8E1352A48BFD700E2373C /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
 		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
 		AB3524952A46187D00FA3E78 /* DLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPView.swift; sourceTree = "<group>"; };
 		AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsPatientsView.swift; sourceTree = "<group>"; };
@@ -218,6 +232,7 @@
 				0D6AA4482A42BACA0079FA59 /* Patient.swift */,
 				0D6AA44A2A42BC040079FA59 /* Doctor.swift */,
 				9814F2D42A4755A5007D8914 /* UserType.swift */,
+				98D8E1352A48BFD700E2373C /* Symptom.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -270,6 +285,7 @@
 		980C23202A4536510006A736 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
+				98D8E1242A48B37300E2373C /* Symptoms */,
 				AB3524B82A480FCC00FA3E78 /* Medications */,
 				AB3524AD2A47CC0200FA3E78 /* Doctor List Screen */,
 				980C23212A45365E0006A736 /* Patient Landing Page */,
@@ -290,6 +306,51 @@
 			isa = PBXGroup;
 			children = (
 				980C23232A4536EC0006A736 /* PLPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98D8E1242A48B37300E2373C /* Symptoms */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E1252A48B37300E2373C /* Add Symptoms Screen */,
+				98D8E1292A48B37300E2373C /* Symptoms List Screen */,
+			);
+			path = Symptoms;
+			sourceTree = "<group>";
+		};
+		98D8E1252A48B37300E2373C /* Add Symptoms Screen */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E1272A48B37300E2373C /* Views */,
+				98D8E1262A48B37300E2373C /* AddSymptomsViewController.swift */,
+			);
+			path = "Add Symptoms Screen";
+			sourceTree = "<group>";
+		};
+		98D8E1272A48B37300E2373C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E1282A48B37300E2373C /* AddSymptomsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98D8E1292A48B37300E2373C /* Symptoms List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E12C2A48B37300E2373C /* Views */,
+				98D8E12B2A48B37300E2373C /* SymptomsViewController.swift */,
+				98D8E12A2A48B37300E2373C /* SymptomsTableViewManager.swift */,
+			);
+			path = "Symptoms List Screen";
+			sourceTree = "<group>";
+		};
+		98D8E12C2A48B37300E2373C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E12E2A48B37300E2373C /* SymptomsView.swift */,
+				98D8E12D2A48B37300E2373C /* SymptomsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,10 +593,14 @@
 				0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */,
 				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
+				98D8E1342A48B37300E2373C /* SymptomsView.swift in Sources */,
+				98D8E1322A48B37300E2373C /* SymptomsViewController.swift in Sources */,
+				98D8E1362A48BFD700E2373C /* Symptom.swift in Sources */,
 				AB3524AA2A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */,
 				AB3524C72A480FCC00FA3E78 /* MedicationsView.swift in Sources */,
+				98D8E1302A48B37300E2373C /* AddSymptomsView.swift in Sources */,
 				AB3524CA2A48A5FF00FA3E78 /* DoctorProfileViewController.swift in Sources */,
 				4B99E0682A2A795600561156 /* ContactsTableViewManager.swift in Sources */,
 				AB35249F2A47946500FA3E78 /* DocsPatientsTableViewCell.swift in Sources */,
@@ -546,10 +611,13 @@
 				0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */,
 				AB35249B2A4791EE00FA3E78 /* DoctorsPatientsView.swift in Sources */,
 				4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */,
+				98D8E1332A48B37300E2373C /* SymptomsTableViewCell.swift in Sources */,
 				980C23242A4536EC0006A736 /* PLPView.swift in Sources */,
 				AB3524CD2A48A62B00FA3E78 /* DoctorProfileView.swift in Sources */,
 				AB3524C42A480FCC00FA3E78 /* AddMedicationsView.swift in Sources */,
 				AB3524C52A480FCC00FA3E78 /* MedicationsTableViewManager.swift in Sources */,
+				98D8E1312A48B37300E2373C /* SymptomsTableViewManager.swift in Sources */,
+				98D8E12F2A48B37300E2373C /* AddSymptomsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
