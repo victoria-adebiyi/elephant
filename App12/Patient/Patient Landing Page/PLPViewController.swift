@@ -14,6 +14,8 @@ class PLPViewController: UIViewController {
     
     var currentUser:FirebaseAuth.User?
     
+//    var myEmail = ""
+    
     var handleAuth: AuthStateDidChangeListenerHandle?
     
     let database = Firestore.firestore()
@@ -74,6 +76,7 @@ class PLPViewController: UIViewController {
 
     @objc func onDoctorsButtonTapped(){
         let patientsDocsScreen = PatientsDoctorsViewController()
+//        patientsDocsScreen.myEmail = self.myEmail.lowercased()
         //        patientsDocsScreen.currentUser = self.currentUser
         navigationController?.pushViewController(patientsDocsScreen, animated: true)
     }

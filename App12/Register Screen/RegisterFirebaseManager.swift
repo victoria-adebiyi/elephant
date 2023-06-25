@@ -35,7 +35,7 @@ extension RegisterViewController{
                             }
                         }
                     }
-                    
+                    Configs.myEmail = email.lowercased()
                     self.setNameOfTheUserInFirebaseAuth(name: name)
                 }else{
                     //MARK: there is a error creating the user...
