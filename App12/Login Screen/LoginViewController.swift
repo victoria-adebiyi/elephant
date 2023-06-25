@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
                 let lowercasedEmail = email.lowercased()
                 let docDocuRef = self.database.collection("doctor").document(lowercasedEmail)
                 let patDocuRef = self.database.collection("patient").document(lowercasedEmail)
+                Configs.myEmail = email.lowercased()
                 
                 docDocuRef.getDocument { (document, error) in
                     if let document = document, document.exists {
@@ -63,7 +64,7 @@ class LoginViewController: UIViewController {
                             if let document = document, document.exists {
                                 //                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                                 let plpScreen = PLPViewController()
-                                Configs.myEmail = email.lowercased()
+//                                Configs.myEmail = email.lowercased()
 //                                plpScreen.myEmail = email
                                 self.hideActivityIndicator()
                                 self.navigationController?.pushViewController(plpScreen, animated: true)

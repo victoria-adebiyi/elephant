@@ -19,6 +19,8 @@ extension RegisterViewController{
         if let name = registerView.textFieldName.text,
            let email = registerView.textFieldEmail.text,
            let password = registerView.textFieldPassword.text{
+            
+            Configs.myEmail = email.lowercased()
             //Validations....
             Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
                 if error == nil{
@@ -35,7 +37,7 @@ extension RegisterViewController{
                             }
                         }
                     }
-                    Configs.myEmail = email.lowercased()
+//                    Configs.myEmail = email.lowercased()
                     self.setNameOfTheUserInFirebaseAuth(name: name)
                 }else{
                     //MARK: there is a error creating the user...
