@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController {
     let storage = Storage.storage()
     
     //MARK: variable to store the picked Image...
+    
     var pickedImage:UIImage?
     
     override func loadView() {

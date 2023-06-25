@@ -16,7 +16,6 @@ class PLPView: UIView {
     var buttonMedication: UIButton!
     var buttonSymptoms: UIButton!
     var buttonDoctor: UIButton!
-//    var tableViewContacts: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

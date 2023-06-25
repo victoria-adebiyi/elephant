@@ -10,6 +10,7 @@ import PhotosUI
 
 //MARK: adopting required protocols for PHPicker...
 extension RegisterViewController:PHPickerViewControllerDelegate{
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         

@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 extension RegisterViewController{
+    
     func uploadProfilePhotoToStorage(){
         var profilePhotoURL:URL?
 

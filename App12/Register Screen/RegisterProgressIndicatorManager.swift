@@ -8,6 +8,7 @@
 import Foundation
 
 extension RegisterViewController:ProgressSpinnerDelegate{
+    
     func showActivityIndicator(){
         addChild(childProgressView)
         view.addSubview(childProgressView.view)

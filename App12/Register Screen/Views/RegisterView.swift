@@ -19,6 +19,7 @@ class RegisterView: UIView {
     var buttonTakePhoto: UIButton!
     var buttonRegister: UIButton!
     
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         self.backgroundColor = .white

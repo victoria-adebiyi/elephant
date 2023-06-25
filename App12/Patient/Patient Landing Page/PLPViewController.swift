@@ -36,6 +36,7 @@ class PLPViewController: UIViewController {
         
         self.plpScreen.buttonMedication.addTarget(self, action: #selector(onButtonMedicationTapped), for: .touchUpInside)
         self.plpScreen.buttonSymptoms.addTarget(self, action: #selector(onButtonSymptomTapped), for: .touchUpInside)
+        self.plpScreen.buttonEditPFP.addTarget(self, action: #selector(onButtonEditPFPTapped), for: .touchUpInside)
     }
     
     override func loadView() {
@@ -89,7 +90,7 @@ class PLPViewController: UIViewController {
                 var pat = Patient(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
                 self.showEditAlert(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
             case .failure(let error):
-                print("something went wrong getting the account to be editted")
+                print("something went wrong getting the account to be edited")
             }
         }
         
@@ -183,6 +184,11 @@ class PLPViewController: UIViewController {
         let symptomScreen = SymptomsViewController()
         symptomScreen.delegate = self
         self.navigationController?.pushViewController(symptomScreen, animated: true)
+    }
+    
+    @objc func onButtonEditPFPTapped() {
+        let editPFPScreen = EditPFPViewController()
+        self.navigationController?.pushViewController(editPFPScreen, animated: true)
     }
     
     @objc func onBarLogoutButtonTapped() {
