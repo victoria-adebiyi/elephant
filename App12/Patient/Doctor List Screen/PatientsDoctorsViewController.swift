@@ -23,8 +23,7 @@ class PatientsDoctorsViewController: UIViewController {
         super.viewDidLoad()
         title = "Doctors"
         
-        doctors.append(Doctor(name: "Eden", email: "e@g.com", phone: 1000000000, specialty: "Cardiology"))
-        doctors.append(Doctor(name: "Herry", email: "h@g.com", phone: 1000000001, specialty: "Pediatrics"))
+        updateDoctors()
         
         patientsDocsScreen.tableViewDoctors.delegate = self
         patientsDocsScreen.tableViewDoctors.dataSource = self
@@ -35,6 +34,45 @@ class PatientsDoctorsViewController: UIViewController {
             action: #selector(onAddBarButtonTapped)
         )
     }
+    
+    func updateDoctors(){
+        doctors.removeAll()
+        var docList = self.database.collection("patient").document(Configs.myEmail).collection("doctorsList")
+        docList.getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    do {
+                        var data = try document.data(as: DoctorsList.self)
+                        var docInList = DoctorsList(email: data.email.lowercased())
+                        
+                        var docProf = self.database.collection("doctor").document(docInList.email)
+
+                        docProf.getDocument(as: Doctor.self) { result in
+                            switch result {
+                            case .success(let doctor):
+                                print("YAY")
+                                // A patient value was successfully initialized from the DocumentSnapshot.
+                                var addedDoctor = Doctor(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
+                                self.doctors.append(addedDoctor)
+                                print(self.doctors)
+                                
+                                self.patientsDocsScreen.tableViewDoctors.reloadData()
+                            case .failure(let error):
+                                // A patient value could not be initialized from the DocumentSnapshot.
+                                self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
+                            }
+                        }
+                    }
+                    catch {
+                        print("Could not decode doclist")
+                    }
+                }
+            }
+        }
+    }
+    
     
     @objc func onAddBarButtonTapped(){
         let addDoctorAlert = UIAlertController(
@@ -53,18 +91,31 @@ class PatientsDoctorsViewController: UIViewController {
         let addDoctorAction = UIAlertAction(title: "Add", style: .default, handler: {(_) in
             if let email = addDoctorAlert.textFields![0].text{
                 var docProf = self.database.collection("doctor").document(email)
+                var listOfDoc = self.database.collection("patient").document(Configs.myEmail).collection("doctorsList")
+                
                 docProf.getDocument(as: Doctor.self) { result in
                     switch result {
-                       case .success(let doctor):
+                    case .success(let doctor):
                         print("YAY")
-                         // A patient value was successfully initialized from the DocumentSnapshot.
+                        // A patient value was successfully initialized from the DocumentSnapshot.
                         var addedDoctor = Doctor(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
                         self.doctors.append(addedDoctor)
+                        
+                        listOfDoc.document(doctor.email.lowercased()).setData([
+                            "email": doctor.email.lowercased(),
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document doctor: \(err)")
+                            } else {
+                                print("Doctor document successfully written!")
+                            }
+                        }
+                        
                         self.patientsDocsScreen.tableViewDoctors.reloadData()
-                       case .failure(let error):
-                         // A patient value could not be initialized from the DocumentSnapshot.
+                    case .failure(let error):
+                        // A patient value could not be initialized from the DocumentSnapshot.
                         self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
-                       }
+                    }
                 }
             }
         })
@@ -92,7 +143,7 @@ class PatientsDoctorsViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-
+    
 }
 
 

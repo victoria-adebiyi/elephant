@@ -62,9 +62,11 @@ class LoginViewController: UIViewController {
                         patDocuRef.getDocument { (document, error) in
                             if let document = document, document.exists {
                                 //                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                                let PLPScreen = PLPViewController()
+                                let plpScreen = PLPViewController()
+                                Configs.myEmail = email.lowercased()
+//                                plpScreen.myEmail = email
                                 self.hideActivityIndicator()
-                                self.navigationController?.pushViewController(PLPScreen, animated: true)
+                                self.navigationController?.pushViewController(plpScreen, animated: true)
                             } else {
                                 self.hideActivityIndicator()
                                 print("Document does not exist")

@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class DoctorProfileViewController: UIViewController {
     var patientsDocsControl:PatientsDoctorsViewController!
     var doctorProfileScreen = DoctorProfileView()
     
+    let database = Firestore.firestore()
+        
     var patIdx = 0
 
     override func viewDidLoad() {
@@ -37,7 +40,19 @@ class DoctorProfileViewController: UIViewController {
         removeAlert.addAction(UIAlertAction(title: "Yes, remove!", style: .default, handler: {(_) in
             print(self.patientsDocsControl.doctors.count)
             print(self.patIdx)
+            var docEmail = self.patientsDocsControl.doctors[self.patIdx].email.lowercased()
             self.patientsDocsControl.doctors.remove(at: self.patIdx)
+            
+            var listOfDoc = self.database.collection("patient").document(Configs.myEmail).collection("doctorsList")
+            
+            listOfDoc.document(docEmail).delete() { err in
+                if let err = err {
+                    print("Error removing doctor document: \(err)")
+                } else {
+                    print("Doctor document successfully removed!")
+                }
+            }
+            
             self.patientsDocsControl.patientsDocsScreen.tableViewDoctors.reloadData()
             self.navigationController?.popViewController(animated: true)
             })
