@@ -56,6 +56,10 @@ class PLPViewController: UIViewController {
             }else{
                 //MARK: the user is signed in...
                 self.currentUser = user
+                if let url = self.currentUser?.photoURL{
+                    self.plpScreen.profilePic.loadRemoteImage(from: url)
+                }
+                
                 if let lowercasedEmail = user!.email?.lowercased() {
                     let patDocuRef = self.database.collection("patient").document(lowercasedEmail)
                     

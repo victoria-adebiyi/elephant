@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import PhotosUI
+import FirebaseStorage
 
 class RegisterViewController: UIViewController {
     
@@ -24,19 +26,62 @@ class RegisterViewController: UIViewController {
         
     var selectedUser = "Patient"
     
+    let storage = Storage.storage()
+    
+    //MARK: variable to store the picked Image...
+    var pickedImage:UIImage?
+    
     override func loadView() {
         view = registerView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         //MARK: adding the PickerView delegate and data source...
         registerView.pickerUser.delegate = self
         registerView.pickerUser.dataSource = self
         
         registerView.buttonRegister.addTarget(self, action: #selector(onRegisterTapped), for: .touchUpInside)
+        
+        registerView.buttonTakePhoto.menu = getMenuImagePicker()
+
         title = "Register"
+    }
+    
+    //MARK: menu for buttonTakePhoto setup...
+    func getMenuImagePicker() -> UIMenu{
+        let menuItems = [
+            UIAction(title: "Camera",handler: {(_) in
+                self.pickUsingCamera()
+            }),
+            UIAction(title: "Gallery",handler: {(_) in
+                self.pickPhotoFromGallery()
+            })
+        ]
+        
+        return UIMenu(title: "Select source", children: menuItems)
+    }
+    
+    //MARK: take Photo using Camera...
+    func pickUsingCamera(){
+        let cameraController = UIImagePickerController()
+        cameraController.sourceType = .camera
+        cameraController.allowsEditing = true
+        cameraController.delegate = self
+        present(cameraController, animated: true)
+    }
+    
+    //MARK: pick Photo using Gallery...
+    func pickPhotoFromGallery(){
+        //MARK: Photo from Gallery...
+        var configuration = PHPickerConfiguration()
+        configuration.filter = PHPickerFilter.any(of: [.images])
+        configuration.selectionLimit = 1
+        
+        let photoPicker = PHPickerViewController(configuration: configuration)
+        
+        photoPicker.delegate = self
+        present(photoPicker, animated: true, completion: nil)
     }
     
     @objc func onRegisterTapped(){
@@ -53,7 +98,7 @@ class RegisterViewController: UIViewController {
             }
             else{
                 //MARK: creating a new user on Firebase...
-                registerNewAccount()
+                uploadProfilePhotoToStorage()
             }
         }
     }

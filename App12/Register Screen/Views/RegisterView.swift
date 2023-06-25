@@ -15,6 +15,8 @@ class RegisterView: UIView {
     var textFieldAoS: UITextField! // age or specialty
     var textFieldPassword: UITextField!
     var textFieldPasswordVerify: UITextField!
+    var labelPhoto:UILabel!
+    var buttonTakePhoto: UIButton!
     var buttonRegister: UIButton!
     
     override init(frame: CGRect){
@@ -28,6 +30,8 @@ class RegisterView: UIView {
         setuptextFieldAoS()
         setuptextFieldPassword()
         setuptextFieldPasswordVerify()
+        setuplabelPhoto()
+        setupbuttonTakePhoto()
         setupbuttonRegister()
         
         initConstraints()
@@ -96,6 +100,27 @@ class RegisterView: UIView {
         self.addSubview(textFieldPasswordVerify)
     }
     
+    func setuplabelPhoto(){
+        labelPhoto = UILabel()
+        labelPhoto.text = "Add Profile Photo"
+        labelPhoto.font = UIFont.boldSystemFont(ofSize: 14)
+        labelPhoto.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(labelPhoto)
+    }
+    
+    func setupbuttonTakePhoto(){
+        buttonTakePhoto = UIButton(type: .system)
+        buttonTakePhoto.setTitle("", for: .normal)
+        buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        //buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        buttonTakePhoto.contentHorizontalAlignment = .fill
+        buttonTakePhoto.contentVerticalAlignment = .fill
+        buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
+        buttonTakePhoto.showsMenuAsPrimaryAction = true
+        buttonTakePhoto.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(buttonTakePhoto)
+    }
+    
     func setupbuttonRegister(){
         buttonRegister = UIButton(type: .system)
         buttonRegister.setTitle("Register", for: .normal)
@@ -106,35 +131,45 @@ class RegisterView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            pickerUser.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -16),
             pickerUser.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             pickerUser.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldName.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: 16),
+            textFieldName.topAnchor.constraint(equalTo: pickerUser.bottomAnchor, constant: -8),
             textFieldName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldName.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldEmail.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 16),
+            textFieldEmail.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 8),
             textFieldEmail.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldEmail.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldPhone.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 16),
+            textFieldPhone.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 8),
             textFieldPhone.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldPhone.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldAoS.topAnchor.constraint(equalTo: textFieldPhone.bottomAnchor, constant: 16),
+            textFieldAoS.topAnchor.constraint(equalTo: textFieldPhone.bottomAnchor, constant: 8),
             textFieldAoS.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldAoS.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldPassword.topAnchor.constraint(equalTo: textFieldAoS.bottomAnchor, constant: 16),
+            textFieldPassword.topAnchor.constraint(equalTo: textFieldAoS.bottomAnchor, constant: 8),
             textFieldPassword.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldPassword.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            textFieldPasswordVerify.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor, constant: 16),
+            textFieldPasswordVerify.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor, constant: 8),
             textFieldPasswordVerify.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             textFieldPasswordVerify.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             
-            buttonRegister.topAnchor.constraint(equalTo: textFieldPasswordVerify.bottomAnchor, constant: 32),
+            buttonTakePhoto.topAnchor.constraint(equalTo: textFieldPasswordVerify.bottomAnchor, constant: 16),
+            buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            //MARK: setting buttonTakePhoto's height and width..
+            buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),
+            buttonTakePhoto.heightAnchor.constraint(equalToConstant: 100),
+            
+            labelPhoto.topAnchor.constraint(equalTo: buttonTakePhoto.bottomAnchor),
+            labelPhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+    
+            
+            buttonRegister.topAnchor.constraint(equalTo: labelPhoto.bottomAnchor, constant: 32),
             buttonRegister.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
         ])
     }

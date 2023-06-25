@@ -44,6 +44,7 @@ class DLPView: UIView {
         profilePic.contentMode = .scaleToFill
         profilePic.clipsToBounds = true
         profilePic.layer.masksToBounds = true
+        profilePic.layer.cornerRadius = 16.0
         profilePic.translatesAutoresizingMaskIntoConstraints = false
         contentWrapper.addSubview(profilePic)
     }

@@ -51,6 +51,9 @@ class DLPViewController: UIViewController {
             }else{
                 //MARK: the user is signed in...
                 self.currentUser = user
+                if let url = self.currentUser?.photoURL{
+                    self.dlpScreen.profilePic.loadRemoteImage(from: url)
+                }
                 if let lowercasedEmail = user!.email?.lowercased() {
                     let patDocuRef = self.database.collection("doctor").document(lowercasedEmail)
                     

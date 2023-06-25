@@ -47,6 +47,8 @@
 		98D8E1332A48B37300E2373C /* SymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12D2A48B37300E2373C /* SymptomsTableViewCell.swift */; };
 		98D8E1342A48B37300E2373C /* SymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E12E2A48B37300E2373C /* SymptomsView.swift */; };
 		98D8E1362A48BFD700E2373C /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1352A48BFD700E2373C /* Symptom.swift */; };
+		98D8E1382A48EAEF00E2373C /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1372A48EAEF00E2373C /* PhotoManager.swift */; };
+		98D8E13A2A48EE5F00E2373C /* ImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8E1392A48EE5F00E2373C /* ImageViewUtils.swift */; };
 		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
 		AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524952A46187D00FA3E78 /* DLPView.swift */; };
 		AB35249B2A4791EE00FA3E78 /* DoctorsPatientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */; };
@@ -110,6 +112,8 @@
 		98D8E12D2A48B37300E2373C /* SymptomsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsTableViewCell.swift; sourceTree = "<group>"; };
 		98D8E12E2A48B37300E2373C /* SymptomsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsView.swift; sourceTree = "<group>"; };
 		98D8E1352A48BFD700E2373C /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
+		98D8E1372A48EAEF00E2373C /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		98D8E1392A48EE5F00E2373C /* ImageViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewUtils.swift; sourceTree = "<group>"; };
 		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
 		AB3524952A46187D00FA3E78 /* DLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPView.swift; sourceTree = "<group>"; };
 		AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsPatientsView.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				4B99E0622A2A735600561156 /* Configs.swift */,
+				98D8E1392A48EE5F00E2373C /* ImageViewUtils.swift */,
 				AB3524992A4618BD00FA3E78 /* Doctor */,
 				980C23202A4536510006A736 /* Patient */,
 				4B99E0732A2ACD6900561156 /* Progress Indicator */,
@@ -247,6 +252,7 @@
 				4B99E06F2A2A9E5800561156 /* RegisterViewController.swift */,
 				4B99E0712A2AAE1400561156 /* RegisterFirebaseManager.swift */,
 				4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */,
+				98D8E1372A48EAEF00E2373C /* PhotoManager.swift */,
 			);
 			path = "Register Screen";
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				4B91D94E2A298B5200070ED2 /* AppDelegate.swift in Sources */,
 				4B99E0612A2A723300561156 /* ContactsTableViewCell.swift in Sources */,
 				4B99E0752A2ACD7B00561156 /* ProgressSpinnerViewController.swift in Sources */,
+				98D8E1382A48EAEF00E2373C /* PhotoManager.swift in Sources */,
 				AB3524B72A480FAF00FA3E78 /* Medication.swift in Sources */,
 				AB3524A72A47CA5E00FA3E78 /* PatientProfileView.swift in Sources */,
 				AB3524B02A47CC5200FA3E78 /* DoctorsTableViewManager.swift in Sources */,
@@ -597,6 +604,7 @@
 				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
 				98D8E1342A48B37300E2373C /* SymptomsView.swift in Sources */,
+				98D8E13A2A48EE5F00E2373C /* ImageViewUtils.swift in Sources */,
 				98D8E1322A48B37300E2373C /* SymptomsViewController.swift in Sources */,
 				98D8E1362A48BFD700E2373C /* Symptom.swift in Sources */,
 				AB3524AA2A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift in Sources */,

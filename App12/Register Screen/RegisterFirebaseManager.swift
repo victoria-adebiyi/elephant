@@ -11,8 +11,39 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 extension RegisterViewController{
+    func uploadProfilePhotoToStorage(){
+        var profilePhotoURL:URL?
+        
+        //MARK: Upload the profile photo if there is any...
+        if let image = pickedImage{
+            if let jpegData = image.jpegData(compressionQuality: 80){
+                let storageRef = storage.reference()
+                let imagesRepo = storageRef.child("imagesUsers")
+                let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+                
+                let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
+                    if error == nil{
+                        imageRef.downloadURL(completion: {(url, error) in
+                            if error == nil{
+                                profilePhotoURL = url
+                                print("successful upload")
+                                self.registerNewAccount(photoURL: profilePhotoURL)
+                            } else {
+                                print(error!)
+                            }
+                        })
+                    } else {
+                        print(error!)
+                    }
+                })
+            }
+        }else{
+            print("no photo selected")
+            registerNewAccount(photoURL: profilePhotoURL)
+        }
+    }
     
-    func registerNewAccount(){
+    func registerNewAccount(photoURL: URL?){
         //MARK: display the progress indicator...
         showActivityIndicator()
         //MARK: create a Firebase user with email and password...
@@ -36,7 +67,7 @@ extension RegisterViewController{
                         }
                     }
                     Configs.myEmail = email.lowercased()
-                    self.setNameOfTheUserInFirebaseAuth(name: name)
+                    self.setNameAndPhotoOfTheUserInFirebaseAuth(name: name, email: email, photoURL: photoURL)
                 }else{
                     //MARK: there is a error creating the user...
                     print(error!)
@@ -46,9 +77,12 @@ extension RegisterViewController{
     }
     
     //MARK: We set the name of the user after we create the account...
-    func setNameOfTheUserInFirebaseAuth(name: String){
+    func setNameAndPhotoOfTheUserInFirebaseAuth(name: String, email: String, photoURL: URL?){
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
+        changeRequest?.photoURL = photoURL
+
+        print("\(String(describing: photoURL))")
         changeRequest?.commitChanges(completion: {(error) in
             if error == nil{
                 //MARK: the profile update is successful...
