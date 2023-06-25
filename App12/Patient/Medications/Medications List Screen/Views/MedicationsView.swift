@@ -38,3 +38,4 @@ class MedicationsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
