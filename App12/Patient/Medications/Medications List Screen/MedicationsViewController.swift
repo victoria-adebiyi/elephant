@@ -19,6 +19,14 @@ class MedicationsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Medications"
+        
+        //MARK: patching table view delegate and data source...
+        medScreen.tableViewMedications.delegate = self
+        medScreen.tableViewMedications.dataSource = self
+        
+        //MARK: removing the separator line...
+        medScreen.tableViewMedications.separatorStyle = .none
     }
     
     override func loadView() {
@@ -40,9 +48,11 @@ class MedicationsViewController: UIViewController {
                 if let documents = querySnapshot?.documents{
                     self.medList.removeAll()
                     for document in documents{
+                        print("\(document): Going through document list...")
                         do{
                             let medication  = try document.data(as: Medication.self)
                             self.medList.append(medication)
+                            print("Appended medication to list")
                         }catch{
                             print(error)
                         }
@@ -51,6 +61,7 @@ class MedicationsViewController: UIViewController {
                     self.medScreen.tableViewMedications.reloadData()
                 }
             })
+
         
         self.navigationItem.rightBarButtonItem = barAddMedication
 
@@ -58,6 +69,7 @@ class MedicationsViewController: UIViewController {
     
     @objc func onAddMedButtonTapped() {
         let addMedView = AddMedicationViewController()
+        addMedView.delegate = delegate
         self.navigationController?.pushViewController(addMedView, animated: true)
     }
     

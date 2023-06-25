@@ -27,7 +27,7 @@ class MedicationsView: UIView {
     
     func initConstraints() {
         NSLayoutConstraint.activate([
-            tableViewMedications.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
+            tableViewMedications.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             tableViewMedications.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             tableViewMedications.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             tableViewMedications.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)

@@ -30,6 +30,8 @@ class PLPViewController: UIViewController {
 
         plpScreen.buttonDoctor.addTarget(self, action: #selector(onDoctorsButtonTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
+        
+        self.plpScreen.buttonMedication.addTarget(self, action: #selector(onButtonMedicationTapped), for: .touchUpInside)
     }
     
     override func loadView() {
@@ -68,13 +70,21 @@ class PLPViewController: UIViewController {
         }
     }
     
+
     @objc func onDoctorsButtonTapped(){
         let patientsDocsScreen = PatientsDoctorsViewController()
-//        patientsDocsScreen.currentUser = self.currentUser
+        //        patientsDocsScreen.currentUser = self.currentUser
         navigationController?.pushViewController(patientsDocsScreen, animated: true)
     }
+
+    @objc func onButtonMedicationTapped() {
+        let medicationScreen = MedicationsViewController()
+        medicationScreen.delegate = self
+        self.navigationController?.pushViewController(medicationScreen, animated: true)
+
+    }
     
-    @objc func onBarLogoutButtonTapped(){
+    @objc func onBarLogoutButtonTapped() {
         let logoutAlert = UIAlertController(title: "Logging out!", message: "Are you sure want to log out?", preferredStyle: .actionSheet)
         logoutAlert.addAction(UIAlertAction(title: "Yes, log out!", style: .default, handler: {(_) in
                 do{

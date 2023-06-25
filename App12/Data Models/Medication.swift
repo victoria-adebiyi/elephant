@@ -7,18 +7,14 @@
 
 import Foundation
 
-struct Medication:Decodable {
+struct Medication:Decodable, Encodable{
     var name:String
     var schedule:String?
-    var refill:Date?
+    var refill:String?
     
-    init(name: String, schedule sched: String?, refill ref: Date?) {
+    init(name: String, schedule: String, refill: String) {
         self.name = name
-        if let schedule = sched {
-            self.schedule = schedule
-        }
-        if let refill = ref {
-            self.refill = refill
-        }
+        self.schedule = schedule
+        self.refill = refill
     }
 }

@@ -16,10 +16,10 @@ extension MedicationsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewMedicationsID, for: indexPath) as! MedicationsTableViewCell
         cell.labelName.text = medList[indexPath.row].name
         if let schedule = medList[indexPath.row].schedule {
-            cell.labelSchedule.text = schedule
+            cell.labelSchedule.text = "Schedule: Take " + schedule
         }
         if let refill = medList[indexPath.row].refill {
-            cell.labelNextRefill.text = refill.formatted(date: .numeric, time: .shortened)
+            cell.labelNextRefill.text = "Next refill: " + refill
         }
         return cell
     }
