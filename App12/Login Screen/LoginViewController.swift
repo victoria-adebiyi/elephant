@@ -62,10 +62,7 @@ class LoginViewController: UIViewController {
                     } else {
                         patDocuRef.getDocument { (document, error) in
                             if let document = document, document.exists {
-                                //                                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                                 let plpScreen = PLPViewController()
-//                                Configs.myEmail = email.lowercased()
-//                                plpScreen.myEmail = email
                                 self.hideActivityIndicator()
                                 self.navigationController?.pushViewController(plpScreen, animated: true)
                             } else {

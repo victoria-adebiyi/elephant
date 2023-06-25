@@ -30,6 +30,7 @@ class PLPViewController: UIViewController {
             action: #selector(onBarLogoutButtonTapped)
         )
 
+        plpScreen.buttonEditPFP.addTarget(self, action: #selector(onEditButtonTapped), for: .touchUpInside)
         plpScreen.buttonDoctor.addTarget(self, action: #selector(onDoctorsButtonTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
         
@@ -73,6 +74,93 @@ class PLPViewController: UIViewController {
         }
     }
     
+    
+    @objc func onEditButtonTapped(){
+        let patProf = database.collection("patient").document(Configs.myEmail)
+        patProf.getDocument(as: Patient.self) { result in
+            switch result {
+            case .success(let patient):
+                print("YAY")
+                // A doctor value was successfully initialized from the DocumentSnapshot.
+                var pat = Patient(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
+                self.showEditAlert(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
+            case .failure(let error):
+                print("something went wrong getting the account to be editted")
+            }
+        }
+        
+    }
+    
+    func showEditAlert(name: String, email: String, phone: Int, age: Int){
+        let editProfAlert = UIAlertController(
+            title: "Edit Profile",
+            message: "Edit your specialty and/or phone number",
+            preferredStyle: .alert)
+        
+        editProfAlert.addTextField{ textField in
+            textField.placeholder = "Specialty"
+            textField.text = "\(age)"
+            textField.contentMode = .center
+            textField.keyboardType = .emailAddress
+        }
+        
+        editProfAlert.addTextField{ textField in
+            textField.placeholder = "Phone Number"
+            textField.text = "\(phone)"
+            textField.contentMode = .center
+            textField.keyboardType = .phonePad
+        }
+        
+        let EditAction = UIAlertAction(title: "Done", style: .default, handler: {(_) in
+            if let uwAge = editProfAlert.textFields![0].text,
+               let uwPhone = editProfAlert.textFields![1].text{
+                if !self.isValidPhone(uwPhone) {
+                    self.showErrorAlertText(text: "Invalid phone!")
+                }
+                else {
+                    if let intPhone = Int(uwPhone),
+                    let intAge = Int(uwAge){
+                        self.changeFields(name: name, email: email, phone: intPhone, age: intAge)
+                    }
+                }
+            }
+        })
+        
+        //MARK: action buttons...
+        editProfAlert.addAction(EditAction)
+        
+        self.present(editProfAlert, animated: true, completion: {() in
+            //MARK: hide the alerton tap outside...
+            editProfAlert.view.superview?.isUserInteractionEnabled = true
+            editProfAlert.view.superview?.addGestureRecognizer(
+                UITapGestureRecognizer(target: self, action: #selector(self.onTapOutsideAlert))
+            )
+        })
+    }
+    
+    func changeFields(name: String, email: String, phone: Int, age: Int){
+        let docProf = database.collection("patient").document(Configs.myEmail)
+        
+        docProf.setData([
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "age": age
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                self.plpScreen.labelAge.text = "Age: \(age)"
+                print("Document successfully written!")
+            }
+        }
+    }
+    
+    
+    @objc func onTapOutsideAlert(){
+        self.dismiss(animated: true)
+    }
+    
 
     @objc func onDoctorsButtonTapped(){
         let patientsDocsScreen = PatientsDoctorsViewController()
@@ -107,6 +195,16 @@ class PLPViewController: UIViewController {
         logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         self.present(logoutAlert, animated: true)
+    }
+    
+    func isValidPhone(_ phone: String) -> Bool {
+        return phone.count == 10 && Int(phone) != nil
+    }
+    
+    func showErrorAlertText(text:String){
+        let alert = UIAlertController(title: "Error!", message: "\(text)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 
 }

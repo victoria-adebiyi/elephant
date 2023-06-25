@@ -29,6 +29,7 @@ class PatientProfileViewController: UIViewController {
         barRemove.tintColor = .red
         
         navigationItem.rightBarButtonItems = [barRemove]
+        
 
     }
     
