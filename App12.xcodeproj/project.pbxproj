@@ -40,18 +40,15 @@
 		980C23262A4537030006A736 /* PLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C23252A4537030006A736 /* PLPViewController.swift */; };
 		9814F2D52A4755A5007D8914 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D42A4755A5007D8914 /* UserType.swift */; };
 		9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */; };
+		9814F2DB2A477AB1007D8914 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2DA2A477AB1007D8914 /* MedicationsViewController.swift */; };
+		9814F2DD2A477DA5007D8914 /* MedicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2DC2A477DA5007D8914 /* MedicationsView.swift */; };
+		9814F2DF2A47822F007D8914 /* MedicationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2DE2A47822F007D8914 /* MedicationsTableViewCell.swift */; };
+		9814F2E12A4782AF007D8914 /* MedicationsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2E02A4782AF007D8914 /* MedicationsTableViewManager.swift */; };
+		9814F2E42A478645007D8914 /* AddMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2E32A478645007D8914 /* AddMedicationViewController.swift */; };
+		9814F2E82A47869B007D8914 /* AddMedicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2E72A47869B007D8914 /* AddMedicationsView.swift */; };
+		9814F2EA2A47A20C007D8914 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814F2E92A47A20C007D8914 /* Medication.swift */; };
 		AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524932A46183F00FA3E78 /* DLPViewController.swift */; };
 		AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524952A46187D00FA3E78 /* DLPView.swift */; };
-		AB35249B2A4791EE00FA3E78 /* DoctorsPatientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */; };
-		AB35249D2A47920700FA3E78 /* DoctorsPatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35249C2A47920700FA3E78 /* DoctorsPatientsViewController.swift */; };
-		AB35249F2A47946500FA3E78 /* DocsPatientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35249E2A47946500FA3E78 /* DocsPatientsTableViewCell.swift */; };
-		AB3524A12A4796CC00FA3E78 /* PatientsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524A02A4796CC00FA3E78 /* PatientsTableViewManager.swift */; };
-		AB3524A52A47CA4C00FA3E78 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524A42A47CA4C00FA3E78 /* PatientProfileViewController.swift */; };
-		AB3524A72A47CA5E00FA3E78 /* PatientProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524A62A47CA5E00FA3E78 /* PatientProfileView.swift */; };
-		AB3524AA2A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524A92A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift */; };
-		AB3524AC2A47CBFA00FA3E78 /* PatientsDoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524AB2A47CBFA00FA3E78 /* PatientsDoctorsView.swift */; };
-		AB3524B02A47CC5200FA3E78 /* DoctorsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524AF2A47CC5200FA3E78 /* DoctorsTableViewManager.swift */; };
-		AB3524B22A47CC7500FA3E78 /* PatientsDocsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3524B12A47CC7500FA3E78 /* PatientsDocsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,18 +83,15 @@
 		980C23252A4537030006A736 /* PLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewController.swift; sourceTree = "<group>"; };
 		9814F2D42A4755A5007D8914 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		9814F2D62A475ECB007D8914 /* LoginProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProgressIndicator.swift; sourceTree = "<group>"; };
+		9814F2DA2A477AB1007D8914 /* MedicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewController.swift; sourceTree = "<group>"; };
+		9814F2DC2A477DA5007D8914 /* MedicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsView.swift; sourceTree = "<group>"; };
+		9814F2DE2A47822F007D8914 /* MedicationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsTableViewCell.swift; sourceTree = "<group>"; };
+		9814F2E02A4782AF007D8914 /* MedicationsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsTableViewManager.swift; sourceTree = "<group>"; };
+		9814F2E32A478645007D8914 /* AddMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewController.swift; sourceTree = "<group>"; };
+		9814F2E72A47869B007D8914 /* AddMedicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationsView.swift; sourceTree = "<group>"; };
+		9814F2E92A47A20C007D8914 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		AB3524932A46183F00FA3E78 /* DLPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPViewController.swift; sourceTree = "<group>"; };
 		AB3524952A46187D00FA3E78 /* DLPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLPView.swift; sourceTree = "<group>"; };
-		AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsPatientsView.swift; sourceTree = "<group>"; };
-		AB35249C2A47920700FA3E78 /* DoctorsPatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsPatientsViewController.swift; sourceTree = "<group>"; };
-		AB35249E2A47946500FA3E78 /* DocsPatientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsPatientsTableViewCell.swift; sourceTree = "<group>"; };
-		AB3524A02A4796CC00FA3E78 /* PatientsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsTableViewManager.swift; sourceTree = "<group>"; };
-		AB3524A42A47CA4C00FA3E78 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
-		AB3524A62A47CA5E00FA3E78 /* PatientProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileView.swift; sourceTree = "<group>"; };
-		AB3524A92A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsDoctorsViewController.swift; sourceTree = "<group>"; };
-		AB3524AB2A47CBFA00FA3E78 /* PatientsDoctorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsDoctorsView.swift; sourceTree = "<group>"; };
-		AB3524AF2A47CC5200FA3E78 /* DoctorsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsTableViewManager.swift; sourceTree = "<group>"; };
-		AB3524B12A47CC7500FA3E78 /* PatientsDocsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsDocsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +193,7 @@
 				0D6AA4482A42BACA0079FA59 /* Patient.swift */,
 				0D6AA44A2A42BC040079FA59 /* Doctor.swift */,
 				9814F2D42A4755A5007D8914 /* UserType.swift */,
+				9814F2E92A47A20C007D8914 /* Medication.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -251,7 +246,7 @@
 		980C23202A4536510006A736 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				AB3524AD2A47CC0200FA3E78 /* Doctor List Screen */,
+				9814F2D82A4779AF007D8914 /* Medications */,
 				980C23212A45365E0006A736 /* Patient Landing Page */,
 			);
 			path = Patient;
@@ -274,6 +269,51 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9814F2D82A4779AF007D8914 /* Medications */ = {
+			isa = PBXGroup;
+			children = (
+				9814F2E62A47865B007D8914 /* Medications List Screen */,
+				9814F2E22A47860B007D8914 /* Add Medication Screen */,
+			);
+			path = Medications;
+			sourceTree = "<group>";
+		};
+		9814F2D92A4779E5007D8914 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9814F2DC2A477DA5007D8914 /* MedicationsView.swift */,
+				9814F2DE2A47822F007D8914 /* MedicationsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9814F2E22A47860B007D8914 /* Add Medication Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9814F2E52A478652007D8914 /* Views */,
+				9814F2E32A478645007D8914 /* AddMedicationViewController.swift */,
+			);
+			path = "Add Medication Screen";
+			sourceTree = "<group>";
+		};
+		9814F2E52A478652007D8914 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9814F2E72A47869B007D8914 /* AddMedicationsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9814F2E62A47865B007D8914 /* Medications List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9814F2D92A4779E5007D8914 /* Views */,
+				9814F2DA2A477AB1007D8914 /* MedicationsViewController.swift */,
+				9814F2E02A4782AF007D8914 /* MedicationsTableViewManager.swift */,
+			);
+			path = "Medications List Screen";
+			sourceTree = "<group>";
+		};
 		AB3524972A46188900FA3E78 /* Doctor Landing Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,58 +334,9 @@
 		AB3524992A4618BD00FA3E78 /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
-				AB3524A32A4798E800FA3E78 /* Patient List Screen */,
 				AB3524972A46188900FA3E78 /* Doctor Landing Page */,
 			);
 			path = Doctor;
-			sourceTree = "<group>";
-		};
-		AB3524A22A4798B800FA3E78 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AB35249E2A47946500FA3E78 /* DocsPatientsTableViewCell.swift */,
-				AB35249A2A4791EE00FA3E78 /* DoctorsPatientsView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AB3524A32A4798E800FA3E78 /* Patient List Screen */ = {
-			isa = PBXGroup;
-			children = (
-				AB3524A22A4798B800FA3E78 /* Views */,
-				AB35249C2A47920700FA3E78 /* DoctorsPatientsViewController.swift */,
-				AB3524A02A4796CC00FA3E78 /* PatientsTableViewManager.swift */,
-				AB3524A82A47CA6B00FA3E78 /* Patient Profile */,
-			);
-			path = "Patient List Screen";
-			sourceTree = "<group>";
-		};
-		AB3524A82A47CA6B00FA3E78 /* Patient Profile */ = {
-			isa = PBXGroup;
-			children = (
-				AB3524A42A47CA4C00FA3E78 /* PatientProfileViewController.swift */,
-				AB3524A62A47CA5E00FA3E78 /* PatientProfileView.swift */,
-			);
-			path = "Patient Profile";
-			sourceTree = "<group>";
-		};
-		AB3524AD2A47CC0200FA3E78 /* Doctor List Screen */ = {
-			isa = PBXGroup;
-			children = (
-				AB3524AE2A47CC1700FA3E78 /* Views */,
-				AB3524A92A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift */,
-				AB3524AF2A47CC5200FA3E78 /* DoctorsTableViewManager.swift */,
-			);
-			path = "Doctor List Screen";
-			sourceTree = "<group>";
-		};
-		AB3524AE2A47CC1700FA3E78 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AB3524B12A47CC7500FA3E78 /* PatientsDocsTableViewCell.swift */,
-				AB3524AB2A47CBFA00FA3E78 /* PatientsDoctorsView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,38 +423,35 @@
 				0D6AA4512A42D58C0079FA59 /* LoginViewController.swift in Sources */,
 				4B91D9522A298B5200070ED2 /* ViewController.swift in Sources */,
 				9814F2D52A4755A5007D8914 /* UserType.swift in Sources */,
+				9814F2E42A478645007D8914 /* AddMedicationViewController.swift in Sources */,
+				9814F2EA2A47A20C007D8914 /* Medication.swift in Sources */,
+				9814F2E82A47869B007D8914 /* AddMedicationsView.swift in Sources */,
 				4B99E0722A2AAE1400561156 /* RegisterFirebaseManager.swift in Sources */,
-				AB3524AC2A47CBFA00FA3E78 /* PatientsDoctorsView.swift in Sources */,
-				AB3524B22A47CC7500FA3E78 /* PatientsDocsTableViewCell.swift in Sources */,
-				AB35249D2A47920700FA3E78 /* DoctorsPatientsViewController.swift in Sources */,
 				4B99E0702A2A9E5800561156 /* RegisterViewController.swift in Sources */,
 				4B99E06E2A2A9CA700561156 /* RegisterView.swift in Sources */,
 				4B91D94E2A298B5200070ED2 /* AppDelegate.swift in Sources */,
 				4B99E0612A2A723300561156 /* ContactsTableViewCell.swift in Sources */,
 				4B99E0752A2ACD7B00561156 /* ProgressSpinnerViewController.swift in Sources */,
-				AB3524A72A47CA5E00FA3E78 /* PatientProfileView.swift in Sources */,
-				AB3524B02A47CC5200FA3E78 /* DoctorsTableViewManager.swift in Sources */,
-				AB3524A52A47CA4C00FA3E78 /* PatientProfileViewController.swift in Sources */,
 				4B99E06A2A2A89FA00561156 /* RightBarButtonManager.swift in Sources */,
 				AB3524942A46183F00FA3E78 /* DLPViewController.swift in Sources */,
 				4B99E07F2A2AEB0A00561156 /* AddContactViewController.swift in Sources */,
 				4B91D9502A298B5200070ED2 /* SceneDelegate.swift in Sources */,
+				9814F2DB2A477AB1007D8914 /* MedicationsViewController.swift in Sources */,
+				9814F2DF2A47822F007D8914 /* MedicationsTableViewCell.swift in Sources */,
 				4B99E05F2A2A6EE700561156 /* MainScreenView.swift in Sources */,
 				AB3524962A46187D00FA3E78 /* DLPView.swift in Sources */,
 				0D6AA4492A42BACA0079FA59 /* Patient.swift in Sources */,
 				0D6AA44B2A42BC040079FA59 /* Doctor.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
-				AB3524AA2A47CBDA00FA3E78 /* PatientsDoctorsViewController.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				9814F2D72A475ECB007D8914 /* LoginProgressIndicator.swift in Sources */,
 				4B99E0682A2A795600561156 /* ContactsTableViewManager.swift in Sources */,
-				AB35249F2A47946500FA3E78 /* DocsPatientsTableViewCell.swift in Sources */,
 				4B99E0662A2A77AA00561156 /* Contact.swift in Sources */,
-				AB3524A12A4796CC00FA3E78 /* PatientsTableViewManager.swift in Sources */,
 				980C23262A4537030006A736 /* PLPViewController.swift in Sources */,
+				9814F2E12A4782AF007D8914 /* MedicationsTableViewManager.swift in Sources */,
+				9814F2DD2A477DA5007D8914 /* MedicationsView.swift in Sources */,
 				4B99E0772A2ACD8A00561156 /* ProgressSpinnerDelegate.swift in Sources */,
 				0D6AA44F2A42D2C40079FA59 /* LoginView.swift in Sources */,
-				AB35249B2A4791EE00FA3E78 /* DoctorsPatientsView.swift in Sources */,
 				4B99E07D2A2AEAF100561156 /* AddContactView.swift in Sources */,
 				980C23242A4536EC0006A736 /* PLPView.swift in Sources */,
 			);

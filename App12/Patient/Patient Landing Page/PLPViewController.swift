@@ -64,25 +64,6 @@ class PLPViewController: UIViewController {
                         }
                     }
                 }
-//                //MARK: Observe Firestore database to display the contacts list...
-//                self.database.collection("users")
-//                    .document((self.currentUser?.email)!)
-//                    .collection("contacts")
-//                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-//                        if let documents = querySnapshot?.documents{
-//                            self.contactsList.removeAll()
-//                            for document in documents{
-//                                do{
-//                                    let contact  = try document.data(as: Contact.self)
-//                                    self.contactsList.append(contact)
-//                                }catch{
-//                                    print(error)
-//                                }
-//                            }
-//                            self.contactsList.sort(by: {$0.name < $1.name})
-//                            self.mainScreen.tableViewContacts.reloadData()
-//                        }
-//                    })
             }
         }
     }
