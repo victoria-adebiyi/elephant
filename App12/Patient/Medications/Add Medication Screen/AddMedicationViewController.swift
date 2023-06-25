@@ -9,7 +9,8 @@ import UIKit
 import FirebaseFirestore
 
 class AddMedicationViewController: UIViewController {
-    var delegate:PLPViewController!
+    var delegate:MedicationsViewController!
+    var patientEmail:String!
     let database = Firestore.firestore()
     let addMedView = AddMedicationsView()
     let scheduleFrequencies = ["Daily", "Weekly", "Monthly", "Other"]
@@ -66,14 +67,12 @@ class AddMedicationViewController: UIViewController {
     
     //MARK: logic to add a contact to Firestore...
     func saveChatToFireStore(medication: Medication){
-        if let email = delegate.currentUser?.email {
             do {
-                try database.collection("patient").document(email).collection("medications").document(medication.name).setData(from: medication)
+                try database.collection("patient").document(patientEmail).collection("medications").document(medication.name).setData(from: medication)
                 delegate.navigationController?.popViewController(animated: true)
             } catch let error {
                 print("Error writing medication to Firestore: \(error)")
             }
-        }
     }
 }
 

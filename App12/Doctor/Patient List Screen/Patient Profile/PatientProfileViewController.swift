@@ -30,11 +30,20 @@ class PatientProfileViewController: UIViewController {
         
         navigationItem.rightBarButtonItems = [barRemove]
         
-
+        patientProfileScreen.patientMedicationsButton.addTarget(self, action: #selector(onButtonMedicationTapped), for: .touchUpInside)
     }
     
     override func loadView() {
         view = patientProfileScreen
+    }
+    
+    @objc func onButtonMedicationTapped() {
+        let patEmail = self.docsPatientsControl.patients[self.patIdx].email.lowercased()
+        let patName = self.docsPatientsControl.patients[self.patIdx].name
+        let medScreen = MedicationsViewController()
+        medScreen.patientEmail = patEmail
+        medScreen.patientName = patName
+        self.navigationController?.pushViewController(medScreen, animated: true)
     }
     
     @objc func onBarRemoveButtonTapped(){
@@ -42,10 +51,10 @@ class PatientProfileViewController: UIViewController {
         removeAlert.addAction(UIAlertAction(title: "Yes, remove!", style: .default, handler: {(_) in
             print(self.docsPatientsControl.patients.count)
             print(self.patIdx)
-            var patEmail = self.docsPatientsControl.patients[self.patIdx].email.lowercased()
+            let patEmail = self.docsPatientsControl.patients[self.patIdx].email.lowercased()
             self.docsPatientsControl.patients.remove(at: self.patIdx)
             
-            var listOfPat = self.database.collection("doctor").document(Configs.myEmail).collection("patientsList")
+            let listOfPat = self.database.collection("doctor").document(Configs.myEmail).collection("patientsList")
                         
             listOfPat.document(patEmail).delete() { err in
                 if let err = err {
@@ -55,7 +64,7 @@ class PatientProfileViewController: UIViewController {
                 }
             }
             
-            var listOfDoc = self.database.collection("patient").document(patEmail).collection("doctorsList")
+            let listOfDoc = self.database.collection("patient").document(patEmail).collection("doctorsList")
             
             listOfDoc.document(Configs.myEmail.lowercased()).delete() { err in
                 if let err = err {

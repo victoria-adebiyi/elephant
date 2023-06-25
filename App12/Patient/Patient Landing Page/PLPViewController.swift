@@ -30,7 +30,7 @@ class PLPViewController: UIViewController {
             action: #selector(onBarLogoutButtonTapped)
         )
 
-        plpScreen.buttonEditPFP.addTarget(self, action: #selector(onEditButtonTapped), for: .touchUpInside)
+        plpScreen.buttonEditProfile.addTarget(self, action: #selector(onEditButtonTapped), for: .touchUpInside)
         plpScreen.buttonDoctor.addTarget(self, action: #selector(onDoctorsButtonTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
         
@@ -99,11 +99,11 @@ class PLPViewController: UIViewController {
     func showEditAlert(name: String, email: String, phone: Int, age: Int){
         let editProfAlert = UIAlertController(
             title: "Edit Profile",
-            message: "Edit your specialty and/or phone number",
+            message: "Edit your age and/or phone number",
             preferredStyle: .alert)
         
         editProfAlert.addTextField{ textField in
-            textField.placeholder = "Specialty"
+            textField.placeholder = "Age"
             textField.text = "\(age)"
             textField.contentMode = .center
             textField.keyboardType = .emailAddress
@@ -176,8 +176,14 @@ class PLPViewController: UIViewController {
 
     @objc func onButtonMedicationTapped() {
         let medicationScreen = MedicationsViewController()
-        medicationScreen.delegate = self
-        self.navigationController?.pushViewController(medicationScreen, animated: true)
+        if let email = currentUser?.email,
+           let name = currentUser?.displayName {
+            medicationScreen.patientEmail = email
+            medicationScreen.patientName = name
+            self.navigationController?.pushViewController(medicationScreen, animated: true)
+        } else {
+            print("Error: Missing User. How did we get here?")
+        }
     }
     
     @objc func onButtonSymptomTapped() {

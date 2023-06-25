@@ -196,6 +196,7 @@
 		4B91D94C2A298B5200070ED2 /* App12 */ = {
 			isa = PBXGroup;
 			children = (
+				98D8E13B2A48F80600E2373C /* Edit PFP */,
 				4B99E0622A2A735600561156 /* Configs.swift */,
 				98D8E1392A48EE5F00E2373C /* ImageViewUtils.swift */,
 				AB3524992A4618BD00FA3E78 /* Doctor */,
@@ -312,7 +313,6 @@
 		980C23212A45365E0006A736 /* Patient Landing Page */ = {
 			isa = PBXGroup;
 			children = (
-				98D8E13B2A48F80600E2373C /* Edit PFP */,
 				980C23222A4536D90006A736 /* Views */,
 				980C23252A4537030006A736 /* PLPViewController.swift */,
 			);

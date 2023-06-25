@@ -34,7 +34,6 @@ class SymptomsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         let barAddSymptom = UIBarButtonItem(
             image: .add,
             style: .plain,
@@ -64,7 +63,6 @@ class SymptomsViewController: UIViewController {
 
         
         self.navigationItem.rightBarButtonItem = barAddSymptom
-
     }
     
     @objc func onAddSymButtonTapped() {

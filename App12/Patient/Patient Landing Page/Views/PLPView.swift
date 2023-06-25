@@ -11,6 +11,7 @@ class PLPView: UIView {
     var contentWrapper: UIScrollView!
     var profilePic: UIImageView!
     var buttonEditPFP: UIButton!
+    var buttonEditProfile: UIButton!
     var labelName: UILabel!
     var labelAge: UILabel!
     var buttonMedication: UIButton!
@@ -26,6 +27,7 @@ class PLPView: UIView {
         setupLabelName()
         setupLabelAge()
         setupButtonEditPFP()
+        setupButtonEditProfile()
         setupButtonMedication()
         setupButtonSymptoms()
         setupButtonDoctor()
@@ -52,6 +54,14 @@ class PLPView: UIView {
         contentWrapper.addSubview(profilePic)
     }
     
+    func setupButtonEditProfile() {
+        buttonEditProfile = UIButton(type: .system)
+        buttonEditProfile.setTitle("", for: .normal)
+        buttonEditProfile.setImage(UIImage(systemName: "square.and.pencil")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        buttonEditProfile.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(buttonEditProfile)
+    }
+    
     func setupLabelName(){
         labelName = UILabel()
         labelName.text = "John Doe"
@@ -71,7 +81,8 @@ class PLPView: UIView {
     
     func setupButtonEditPFP(){
         buttonEditPFP = UIButton(type: .system)
-        buttonEditPFP.setTitle("Edit", for: .normal)
+        buttonEditPFP.setTitle("", for: .normal)
+        buttonEditPFP.setImage(UIImage(systemName: "camera.badge.ellipsis")?.withRenderingMode(.alwaysOriginal), for: .normal)
         buttonEditPFP.translatesAutoresizingMaskIntoConstraints = false
         contentWrapper.addSubview(buttonEditPFP)
     }
@@ -138,13 +149,19 @@ class PLPView: UIView {
             
             buttonEditPFP.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
             buttonEditPFP.centerXAnchor.constraint(equalTo: profilePic.centerXAnchor),
-            
+            buttonEditPFP.widthAnchor.constraint(equalToConstant: 32),
+            buttonEditPFP.heightAnchor.constraint(equalToConstant: 32),
+
             labelName.centerYAnchor.constraint(equalTo: profilePic.centerYAnchor),
             labelName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 32),
             labelName.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -16),
             
             labelAge.leadingAnchor.constraint(equalTo: labelName.leadingAnchor),
             labelAge.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 24),
+            
+            buttonEditProfile.trailingAnchor.constraint(lessThanOrEqualTo: labelAge.leadingAnchor),
+            buttonEditProfile.topAnchor.constraint(equalTo: labelAge.topAnchor),
+            buttonEditProfile.bottomAnchor.constraint(equalTo: labelAge.bottomAnchor),
             
             buttonMedication.widthAnchor.constraint(equalToConstant: 150),
             buttonMedication.heightAnchor.constraint(equalToConstant: 75),

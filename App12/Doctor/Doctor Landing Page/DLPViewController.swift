@@ -28,8 +28,9 @@ class DLPViewController: UIViewController {
             action: #selector(onBarLogoutButtonTapped)
         )
         
-        dlpScreen.buttonEditPFP.addTarget(self, action: #selector(onEditButtonTapped), for: .touchUpInside)
+        dlpScreen.buttonEditProfile.addTarget(self, action: #selector(onEditButtonTapped), for: .touchUpInside)
         dlpScreen.buttonPatients.addTarget(self, action: #selector(onPatientsButtonTapped), for: .touchUpInside)
+        dlpScreen.buttonEditPFP.addTarget(self, action: #selector(onButtonEditPFPTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [barLogout]
     }
     
@@ -73,6 +74,10 @@ class DLPViewController: UIViewController {
     }
     
     
+    @objc func onButtonEditPFPTapped() {
+        let editPFPScreen = EditPFPViewController()
+        self.navigationController?.pushViewController(editPFPScreen, animated: true)
+    }
     
     @objc func onEditButtonTapped(){
         let docProf = database.collection("doctor").document(Configs.myEmail)
@@ -81,9 +86,8 @@ class DLPViewController: UIViewController {
             case .success(let doctor):
                 print("YAY")
                 // A doctor value was successfully initialized from the DocumentSnapshot.
-                var doc = Doctor(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
                 self.showEditAlert(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
-            case .failure(let error):
+            case .failure(_):
                 print("something went wrong getting the account to be editted")
             }
         }

@@ -14,6 +14,7 @@ class DLPView: UIView {
     var labelName: UILabel!
     var labelSpecialty: UILabel!
     var buttonPatients: UIButton!
+    var buttonEditProfile:UIButton!
 //    var tableViewContacts: UITableView!
     
     override init(frame: CGRect) {
@@ -25,6 +26,7 @@ class DLPView: UIView {
         setupLabelName()
         setupLabelSpecialty()
         setupButtonEditPFP()
+        setupButtonEditProfile()
         setupButtonPatients()
         initConstraints()
     }
@@ -67,9 +69,18 @@ class DLPView: UIView {
     
     func setupButtonEditPFP(){
         buttonEditPFP = UIButton(type: .system)
-        buttonEditPFP.setTitle("Edit", for: .normal)
+        buttonEditPFP.setTitle("", for: .normal)
+        buttonEditPFP.setImage(UIImage(systemName: "camera.badge.ellipsis")?.withRenderingMode(.alwaysOriginal), for: .normal)
         buttonEditPFP.translatesAutoresizingMaskIntoConstraints = false
         contentWrapper.addSubview(buttonEditPFP)
+    }
+    
+    func setupButtonEditProfile() {
+        buttonEditProfile = UIButton(type: .system)
+        buttonEditProfile.setTitle("", for: .normal)
+        buttonEditProfile.setImage(UIImage(systemName: "square.and.pencil")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        buttonEditProfile.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(buttonEditProfile)
     }
     
     func setupButtonPatients(){
@@ -103,12 +114,18 @@ class DLPView: UIView {
             
             buttonEditPFP.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
             buttonEditPFP.centerXAnchor.constraint(equalTo: profilePic.centerXAnchor),
+            buttonEditPFP.widthAnchor.constraint(equalToConstant: 32),
+            buttonEditPFP.heightAnchor.constraint(equalToConstant: 32),
             
             labelName.centerYAnchor.constraint(equalTo: profilePic.centerYAnchor),
             labelName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 32),
             
             labelSpecialty.leadingAnchor.constraint(equalTo: labelName.leadingAnchor),
             labelSpecialty.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 24),
+            
+            buttonEditProfile.trailingAnchor.constraint(lessThanOrEqualTo: labelSpecialty.leadingAnchor),
+            buttonEditProfile.topAnchor.constraint(equalTo: labelSpecialty.topAnchor),
+            buttonEditProfile.bottomAnchor.constraint(equalTo: labelSpecialty.bottomAnchor),
             
             buttonPatients.widthAnchor.constraint(equalToConstant: 150),
             buttonPatients.heightAnchor.constraint(equalToConstant: 75),

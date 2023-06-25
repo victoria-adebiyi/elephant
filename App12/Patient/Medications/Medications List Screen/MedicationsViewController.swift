@@ -9,17 +9,20 @@ import UIKit
 import FirebaseFirestore
 
 class MedicationsViewController: UIViewController {
-    var delegate:PLPViewController!
-    
     let medScreen = MedicationsView()
     
     var medList = [Medication]()
+    
+    let database = Firestore.firestore()
+    
+    var patientEmail:String!
+    var patientName:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "Medications"
+        title = "\(patientName!)'s Medications"
         
         //MARK: patching table view delegate and data source...
         medScreen.tableViewMedications.delegate = self
@@ -41,8 +44,8 @@ class MedicationsViewController: UIViewController {
             target: self,
             action: #selector(onAddMedButtonTapped))
         
-        delegate.database.collection("patient")
-            .document((delegate.currentUser?.email)!)
+        database.collection("patient")
+            .document((patientEmail)!)
             .collection("medications")
             .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                 if let documents = querySnapshot?.documents{
@@ -69,7 +72,8 @@ class MedicationsViewController: UIViewController {
     
     @objc func onAddMedButtonTapped() {
         let addMedView = AddMedicationViewController()
-        addMedView.delegate = delegate
+        addMedView.delegate = self
+        addMedView.patientEmail = self.patientEmail
         self.navigationController?.pushViewController(addMedView, animated: true)
     }
     

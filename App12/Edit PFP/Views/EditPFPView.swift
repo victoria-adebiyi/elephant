@@ -59,8 +59,10 @@ class EditPFPView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
+            buttonTakePhoto.widthAnchor.constraint(equalToConstant: 200),
+            buttonTakePhoto.heightAnchor.constraint(equalToConstant: 200),
             buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            buttonTakePhoto.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
+            buttonTakePhoto.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
             
             labelPhoto.bottomAnchor.constraint(equalTo: buttonTakePhoto.topAnchor, constant: 8),
             labelPhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),

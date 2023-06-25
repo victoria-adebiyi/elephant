@@ -15,7 +15,6 @@ class PatientProfileView: UIView {
     var patientAgeLabel: UILabel!
     var patientPhoneLabel: UILabel!
     var patientMedicationsButton: UIButton!
-    var patientSymptomsButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +27,6 @@ class PatientProfileView: UIView {
         setupPatientAgeLabel()
         setupPatientPhoneLabel()
         setupPatientMedicationsButton()
-        setupPatientSymptomsButton()
         initConstraints()
     }
     
@@ -97,22 +95,6 @@ class PatientProfileView: UIView {
         
     }
     
-    func setupPatientSymptomsButton(){
-        patientSymptomsButton = UIButton(type: .system)
-        var config = UIButton.Configuration.gray()
-        config.background.strokeColor = .darkGray
-        config.background.strokeWidth = 1.0
-        config.baseForegroundColor = .black
-        config.titleAlignment = .center
-        config.title = "Symptoms"
-        config.buttonSize = .large
-        patientSymptomsButton.setTitle("Symptoms", for: .normal)
-        patientSymptomsButton.configuration = config
-        patientSymptomsButton.translatesAutoresizingMaskIntoConstraints = false
-        contentWrapper.addSubview(patientSymptomsButton)
-        
-    }
-    
     func initConstraints(){
         NSLayoutConstraint.activate([
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
@@ -140,12 +122,7 @@ class PatientProfileView: UIView {
             patientMedicationsButton.widthAnchor.constraint(equalToConstant: 150),
             patientMedicationsButton.heightAnchor.constraint(equalToConstant: 75),
             patientMedicationsButton.topAnchor.constraint(equalTo: patientPhoneLabel.bottomAnchor, constant: 32),
-            patientMedicationsButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor, constant: -80),
-            
-            patientSymptomsButton.widthAnchor.constraint(equalToConstant: 150),
-            patientSymptomsButton.heightAnchor.constraint(equalToConstant: 75),
-            patientSymptomsButton.topAnchor.constraint(equalTo: patientMedicationsButton.topAnchor),
-            patientSymptomsButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor, constant: 80),
+            patientMedicationsButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
         ])
     }
     
