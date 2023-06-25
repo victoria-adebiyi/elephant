@@ -53,6 +53,16 @@ class DoctorProfileViewController: UIViewController {
                 }
             }
             
+            var listOfPat = self.database.collection("doctor").document(docEmail).collection("patientsList")
+            
+            listOfPat.document(Configs.myEmail.lowercased()).delete() { err in
+                if let err = err {
+                    print("Error removing patient from doc document list: \(err)")
+                } else {
+                    print("Patient document successfully removed from doc list!")
+                }
+            }
+            
             self.patientsDocsControl.patientsDocsScreen.tableViewDoctors.reloadData()
             self.navigationController?.popViewController(animated: true)
             })

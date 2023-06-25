@@ -25,9 +25,6 @@ class DoctorsPatientsViewController: UIViewController {
         
         updatePatients()
         
-        patients.append(Patient(name: "Eden", email: "e@g.com", phone: 1000000000, age: 20))
-        patients.append(Patient(name: "Herry", email: "h@g.com", phone: 1000000001, age: 15))
-        
         docsPatientsScreen.tableViewPatients.delegate = self
         docsPatientsScreen.tableViewPatients.dataSource = self
         
@@ -98,6 +95,18 @@ class DoctorsPatientsViewController: UIViewController {
             if let email = addPatientAlert.textFields![0].text{
                 var ptProf = self.database.collection("patient").document(email)
                 var listOfPat = self.database.collection("doctor").document(Configs.myEmail).collection("patientsList")
+                
+                var listOfDoc = self.database.collection("patient").document(email).collection("doctorsList")
+                
+                listOfDoc.document(Configs.myEmail.lowercased()).setData([
+                    "email": Configs.myEmail.lowercased(),
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document adding doc to patient list:  \(err)")
+                    } else {
+                        print("Docs adding to patient document successfully written!")
+                    }
+                }
                 
                 ptProf.getDocument(as: Patient.self) { result in
                     switch result {
