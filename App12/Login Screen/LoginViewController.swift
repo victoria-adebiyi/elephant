@@ -81,6 +81,7 @@ class LoginViewController: UIViewController {
                 
             }else{
                 //MARK: alert that no user found or password wrong...
+                self.hideActivityIndicator()
                 let alert = UIAlertController(title: "Error!", message: "No user found or password is wrong!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true)
