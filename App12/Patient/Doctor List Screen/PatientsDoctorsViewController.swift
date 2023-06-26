@@ -90,44 +90,49 @@ class PatientsDoctorsViewController: UIViewController {
         //MARK: Sign In Action...
         let addDoctorAction = UIAlertAction(title: "Add", style: .default, handler: {(_) in
             if let email = addDoctorAlert.textFields![0].text{
-                var docProf = self.database.collection("doctor").document(email)
-                var listOfDoc = self.database.collection("patient").document(Configs.myEmail).collection("doctorsList")
-                
-                var listOfPat = self.database.collection("doctor").document(email).collection("patientsList")
-                
-                listOfPat.document(Configs.myEmail.lowercased()).setData([
-                    "email": Configs.myEmail.lowercased(),
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document adding patient to doc list: \(err)")
-                    } else {
-                        print("Patients adding to doc document successfully written!")
+                if !email.isEmpty {
+                    var docProf = self.database.collection("doctor").document(email)
+                    var listOfDoc = self.database.collection("patient").document(Configs.myEmail).collection("doctorsList")
+                    
+                    var listOfPat = self.database.collection("doctor").document(email).collection("patientsList")
+                    
+                    listOfPat.document(Configs.myEmail.lowercased()).setData([
+                        "email": Configs.myEmail.lowercased(),
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document adding patient to doc list: \(err)")
+                        } else {
+                            print("Patients adding to doc document successfully written!")
+                        }
+                    }
+                    
+                    docProf.getDocument(as: Doctor.self) { result in
+                        switch result {
+                        case .success(let doctor):
+                            print("YAY")
+                            // A doctor value was successfully initialized from the DocumentSnapshot.
+                            var addedDoctor = Doctor(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
+                            self.doctors.append(addedDoctor)
+                            
+                            listOfDoc.document(doctor.email.lowercased()).setData([
+                                "email": doctor.email.lowercased(),
+                            ]) { err in
+                                if let err = err {
+                                    print("Error writing document doctor: \(err)")
+                                } else {
+                                    print("Doctor document successfully written!")
+                                }
+                            }
+                            
+                            self.patientsDocsScreen.tableViewDoctors.reloadData()
+                        case .failure(let error):
+                            // A patient value could not be initialized from the DocumentSnapshot.
+                            self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
+                        }
                     }
                 }
-                
-                docProf.getDocument(as: Doctor.self) { result in
-                    switch result {
-                    case .success(let doctor):
-                        print("YAY")
-                        // A doctor value was successfully initialized from the DocumentSnapshot.
-                        var addedDoctor = Doctor(name: doctor.name, email: doctor.email, phone: doctor.phone, specialty: doctor.specialty)
-                        self.doctors.append(addedDoctor)
-                        
-                        listOfDoc.document(doctor.email.lowercased()).setData([
-                            "email": doctor.email.lowercased(),
-                        ]) { err in
-                            if let err = err {
-                                print("Error writing document doctor: \(err)")
-                            } else {
-                                print("Doctor document successfully written!")
-                            }
-                        }
-                        
-                        self.patientsDocsScreen.tableViewDoctors.reloadData()
-                    case .failure(let error):
-                        // A patient value could not be initialized from the DocumentSnapshot.
-                        self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
-                    }
+                else {
+                    self.showErrorAlert(errorMessage: "Email cannot be empty")
                 }
             }
         })

@@ -93,6 +93,7 @@ class DoctorsPatientsViewController: UIViewController {
         //MARK: Sign In Action...
         let addPatientAction = UIAlertAction(title: "Add", style: .default, handler: {(_) in
             if let email = addPatientAlert.textFields![0].text{
+                if !email.isEmpty {
                 var ptProf = self.database.collection("patient").document(email)
                 var listOfPat = self.database.collection("doctor").document(Configs.myEmail).collection("patientsList")
                 
@@ -108,29 +109,33 @@ class DoctorsPatientsViewController: UIViewController {
                     }
                 }
                 
-                ptProf.getDocument(as: Patient.self) { result in
-                    switch result {
-                    case .success(let patient):
-                        print("YAY")
-                        // A patient value was successfully initialized from the DocumentSnapshot.
-                        var addedPatient = Patient(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
-                        self.patients.append(addedPatient)
-                        
-                        listOfPat.document(patient.email.lowercased()).setData([
-                            "email": patient.email.lowercased(),
-                        ]) { err in
-                            if let err = err {
-                                print("Error writing document patient: \(err)")
-                            } else {
-                                print("Patient document successfully written!")
+                    ptProf.getDocument(as: Patient.self) { result in
+                        switch result {
+                        case .success(let patient):
+                            print("YAY")
+                            // A patient value was successfully initialized from the DocumentSnapshot.
+                            var addedPatient = Patient(name: patient.name, email: patient.email, phone: patient.phone, age: patient.age)
+                            self.patients.append(addedPatient)
+                            
+                            listOfPat.document(patient.email.lowercased()).setData([
+                                "email": patient.email.lowercased(),
+                            ]) { err in
+                                if let err = err {
+                                    print("Error writing document patient: \(err)")
+                                } else {
+                                    print("Patient document successfully written!")
+                                }
                             }
+                            
+                            self.docsPatientsScreen.tableViewPatients.reloadData()
+                        case .failure(let error):
+                            // A patient value could not be initialized from the DocumentSnapshot.
+                            self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
                         }
-                        
-                        self.docsPatientsScreen.tableViewPatients.reloadData()
-                    case .failure(let error):
-                        // A patient value could not be initialized from the DocumentSnapshot.
-                        self.showErrorAlert(errorMessage: "Account does not exist. Please try again!")
                     }
+                }
+                else {
+                    self.showErrorAlert(errorMessage: "Email cannot be empty")
                 }
             }
         })
@@ -146,6 +151,7 @@ class DoctorsPatientsViewController: UIViewController {
             )
         })
     }
+                                             
     
     @objc func onTapOutsideAlert(){
         self.dismiss(animated: true)
