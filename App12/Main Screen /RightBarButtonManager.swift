@@ -46,32 +46,8 @@ extension ViewController{
                 action: #selector(onSignInBarButtonTapped)
             )
             
-            let barTemp = UIBarButtonItem(
-                title: "See Patient View",
-                style: .plain,
-                target: self,
-                action: #selector(onBarTempButtonTapped)
-            )
-            
-            let barTemp2 = UIBarButtonItem(
-                title: "See Doctor View",
-                style: .plain,
-                target: self,
-                action: #selector(onBarTemp2ButtonTapped)
-            )
-            
-            navigationItem.rightBarButtonItems = [barIcon, barText, barTemp, barTemp2]
+            navigationItem.rightBarButtonItems = [barIcon, barText]
         }
-    }
-    
-    @objc func onBarTempButtonTapped(){
-        let plpView = PLPViewController()
-        self.navigationController?.pushViewController(plpView, animated: true)
-    }
-    
-    @objc func onBarTemp2ButtonTapped(){
-        let dlpView = DLPViewController()
-        self.navigationController?.pushViewController(dlpView, animated: true)
     }
     
     @objc func onSignInBarButtonTapped(){
