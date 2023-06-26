@@ -88,9 +88,14 @@ class RegisterViewController: UIViewController {
     @objc func onRegisterTapped(){
         if let email = registerView.textFieldEmail.text,
            let phone = registerView.textFieldPhone.text,
+           let name = registerView.textFieldName.text,
+           let aos = registerView.textFieldAoS.text,
            let password = registerView.textFieldPassword.text,
            let passwordVerify = registerView.textFieldPasswordVerify.text{
-            if !isValidEmail(email) {
+            if name.isEmpty || phone.isEmpty || password.isEmpty || email.isEmpty
+                || aos.isEmpty {
+                showErrorAlertText(text: "Please fill all of the fields")
+            } else if !isValidEmail(email) {
                 showErrorAlertText(text: "Invalid email!")
             } else if !isValidPhone(phone) {
                 showErrorAlertText(text: "Invalid phone!")
