@@ -51,14 +51,14 @@ class MedicationsTableViewCell: UITableViewCell {
     
     func setupLabelSchedule(){
         labelSchedule = UILabel()
-        labelSchedule.font = UIFont.boldSystemFont(ofSize: 14)
+        labelSchedule.font = UIFont.systemFont(ofSize: 14)
         labelSchedule.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.addSubview(labelSchedule)
     }
     
     func setupLabelNextRefill(){
         labelNextRefill = UILabel()
-        labelNextRefill.font = UIFont.boldSystemFont(ofSize: 14)
+        labelNextRefill.font = UIFont.systemFont(ofSize: 14)
         labelNextRefill.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.addSubview(labelNextRefill)
     }

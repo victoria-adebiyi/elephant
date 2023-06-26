@@ -21,8 +21,43 @@ extension MedicationsViewController: UITableViewDelegate, UITableViewDataSource 
         if let refill = medList[indexPath.row].refill {
             cell.labelNextRefill.text = "Next refill: " + refill
         }
+        //Edit/Delete Accessory View
+        //MARK: crating an accessory button...
+        let buttonOptions = UIButton(type: .system)
+        buttonOptions.contentMode = .scaleAspectFill
+        buttonOptions.sizeToFit()
+        buttonOptions.showsMenuAsPrimaryAction = true
+        //MARK: setting an icon from sf symbols...
+        buttonOptions.setImage(UIImage(systemName: "xmark"), for: .normal)
+        buttonOptions.clipsToBounds = true
+        
+        //MARK: setting up menu for button options click...
+        buttonOptions.menu = UIMenu(title: "Delete?",
+                                    children: [
+                                        UIAction(title: "Yes, Delete this item",attributes: .destructive,handler: {(_) in
+                                            self.deleteSelectedFor(medication: self.medList[indexPath.row])
+                                        })
+                                    ])
+        
+        //MARK: setting the button as an accessory of the cell...
+        cell.accessoryView = buttonOptions
         return cell
     }
+    
+
+    func deleteSelectedFor(medication: Medication){
+        let listofMed = database.collection("patient").document(patientEmail).collection("medications")
+            
+        listofMed.document(medication.name).delete() { err in
+            if let err = err {
+                print("Error removing patient document: \(err)")
+            } else {
+                print("Patient document successfully removed!")
+            }
+        }
+            
+    }
+
     
 
 }

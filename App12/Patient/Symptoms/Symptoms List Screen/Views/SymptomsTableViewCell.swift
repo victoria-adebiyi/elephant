@@ -61,13 +61,14 @@ class SymptomsTableViewCell: UITableViewCell {
     func setupLabelTimeframe(){
         labelTimeframe = UILabel()
         labelTimeframe.font = UIFont.systemFont(ofSize: 12)
+        labelTimeframe.adjustsFontSizeToFitWidth = true
         labelTimeframe.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.addSubview(labelTimeframe)
     }
     
     func setupLabelDuration(){
         labelDuration = UILabel()
-        labelDuration.font = UIFont.boldSystemFont(ofSize: 12)
+        labelDuration.font = labelTimeframe.font
         labelDuration.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.addSubview(labelDuration)
     }
@@ -91,15 +92,15 @@ class SymptomsTableViewCell: UITableViewCell {
             
             labelTimeframe.topAnchor.constraint(equalTo: labelIntensity.bottomAnchor, constant: 2),
             labelTimeframe.leadingAnchor.constraint(equalTo: labelIntensity.leadingAnchor),
+            labelTimeframe.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -40),
             labelTimeframe.heightAnchor.constraint(equalToConstant: 16),
-            labelTimeframe.widthAnchor.constraint(lessThanOrEqualTo: labelName.widthAnchor),
             
             labelDuration.topAnchor.constraint(equalTo: labelTimeframe.bottomAnchor, constant: 2),
             labelDuration.leadingAnchor.constraint(equalTo: labelIntensity.leadingAnchor),
             labelDuration.heightAnchor.constraint(equalToConstant: 16),
             labelDuration.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
             
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 80)
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 

@@ -43,7 +43,7 @@ class AddSymptomsViewController: UIViewController {
 
             let symptom = Symptom(name: symptomName, intensity: symptomIntensity, timeStart: symptomStart, timeFrame: symptomRange, duration: duration)
             print("Sending to Firestore")
-            self.saveChatToFireStore(symptom: symptom)
+            self.saveSymptomToFireStore(symptom: symptom)
             
         } else {
             let errorAlert = UIAlertController(title: "Symptom must have a Name!", message: "Please enter the describe the symptom you are experience in the textbox", preferredStyle: .alert)
@@ -53,10 +53,11 @@ class AddSymptomsViewController: UIViewController {
     }
     
     //MARK: logic to add a contact to Firestore...
-    func saveChatToFireStore(symptom: Symptom){
+    func saveSymptomToFireStore(symptom: Symptom){
+        let generateID = SymptomID()
         if let email = delegate.currentUser?.email {
             do {
-                try database.collection("patient").document(email).collection("symptoms").document(symptom.name).setData(from: symptom)
+                try database.collection("patient").document(email).collection("symptoms").document(SymptomID.generateUniqueID(from: symptom)).setData(from: symptom)
                 delegate.navigationController?.popViewController(animated: true)
             } catch let error {
                 print("Error writing medication to Firestore: \(error)")

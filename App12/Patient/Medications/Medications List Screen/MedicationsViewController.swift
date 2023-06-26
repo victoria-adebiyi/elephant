@@ -23,6 +23,7 @@ class MedicationsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         title = "\(patientName!)'s Medications"
+        self.navigationItem.largeTitleDisplayMode = .never
         
         //MARK: patching table view delegate and data source...
         medScreen.tableViewMedications.delegate = self
